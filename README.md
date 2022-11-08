@@ -1,6 +1,6 @@
 # pharmamanagementsystem
 
-Pharma Management System
+A new Flutter project.
 
 ## Getting Started
 
