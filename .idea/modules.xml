@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/LabOne.iml" filepath="$PROJECT_DIR$/.idea/LabOne.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pharmamanagementsystem.iml" filepath="$PROJECT_DIR$/pharmamanagementsystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/pharmamanagementsystem_android.iml" filepath="$PROJECT_DIR$/android/pharmamanagementsystem_android.iml" />
     </modules>
   </component>
 </project>
