@@ -128,7 +128,7 @@ class _stockproductsstate extends State<stockproducts> {
                               onPressed: () {},
                               style: TextButton.styleFrom(
                                   backgroundColor: Color(0xFFe6ea80)),
-                              child: Text(
+                              child:const Text(
                                 'Save',
                                 style:
                                     TextStyle(color: Colors.black87, fontSize: 15.0),
