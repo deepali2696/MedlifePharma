@@ -5,6 +5,7 @@ import 'package:pharmamanagementsystem/reusable/screentitle.dart'
 import 'package:google_fonts/google_fonts.dart';
 
 import '../reusable/menucard.dart';
+import '../reusable/userinputcard.dart';
 
 class stockproducts extends StatefulWidget {
   @override
@@ -70,7 +71,7 @@ class _stockproductsstate extends State<stockproducts> {
                 Container(
                   padding: EdgeInsets.fromLTRB(30.0, 15.0, 0.0, 0.0),
                   alignment: Alignment.centerLeft,
-                  child: Text(
+                  child: const Text(
                     'Add Products',
                     style: TextStyle(
                         fontSize: 17.0,
@@ -80,25 +81,25 @@ class _stockproductsstate extends State<stockproducts> {
                 )
               ],
             ),
-            // Column(
-            //   children: const <Widget>[
-            //     textformfield(
-            //       Textfieldtitle: 'Product Id',
-            //     ),
-            //     textformfield(
-            //       Textfieldtitle: 'Product Type',
-            //     ),
-            //     textformfield(
-            //       Textfieldtitle: 'Product Name',
-            //     ),
-            //     textformfield(
-            //       Textfieldtitle: 'Quantity',
-            //     ),
-            //     textformfield(
-            //       Textfieldtitle: 'Price',
-            //     ),
-            //   ],
-            // ),
+            Column(
+              children:const <Widget>[
+                textformfield(
+                  Textfieldtitle: 'Product Id',
+                ),
+                textformfield(
+                  Textfieldtitle: 'Product Type',
+                ),
+                textformfield(
+                  Textfieldtitle: 'Product Name',
+                ),
+                textformfield(
+                  Textfieldtitle: 'Quantity',
+                ),
+                textformfield(
+                  Textfieldtitle: 'Price',
+                ),
+              ],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
