@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmamanagementsystem/reusable/screentitle.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -10,21 +11,18 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF7AB4BD),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: const Text(
-          'Login',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 22.0,
-          ),
-        ),
-      ),
+
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:<Widget>[
+                Container(
+                  child: screentitle(title: 'Login',),
+                )
+              ]
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 60.0),
               child: Center(
@@ -71,6 +69,27 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 40.0,
+                      width: 90.0,
+                      child: ElevatedButton(
+                        child: Text('Login'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF4f7f84),
+                          textStyle: const TextStyle(fontSize: 20.0),
+                        ),
+                        onPressed: () {},
+                      ),
+                    )
+                  ],
+                ),
+            )
           ],
         ),
       ),
