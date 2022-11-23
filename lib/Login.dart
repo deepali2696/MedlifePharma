@@ -23,26 +23,51 @@ class _LoginState extends State<Login> {
         ),
       ),
       body: SingleChildScrollView(
-          child: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 60.0),
-            child: Center(
-              child: Container(
-                  color: Color(0xFF4F7F84),
-                  width: double.infinity,
-                  height: 150,
-                  margin: EdgeInsets.only(bottom: 50),
-                  /*decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular((50.0)),*/
-                  child: Image.asset('logo/Logo2.png')
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 60.0),
+              child: Center(
+                child: Container(
+                    color: Color(0xFF4F7F84),
+                    width: double.infinity,
+                    height: 150,
+                    margin: EdgeInsets.only(bottom: 70.0),
+                    child: Image.asset('logo/Logo2.png')),
               ),
             ),
-          ),
-        ],
-      ),
-
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Container(
+                child: const TextField(
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    labelText: 'Username',
+                    labelStyle: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              child: Container(
+                child: const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
