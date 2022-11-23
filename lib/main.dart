@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Stock_Products.dart';
+import 'Stock_Manager/Stock_Products.dart';
 
 void main() {
   runApp(MyApp());
