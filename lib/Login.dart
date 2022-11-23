@@ -50,6 +50,7 @@ class _LoginState extends State<Login> {
                     ),
                     labelText: 'Username',
                     labelStyle: TextStyle(color: Colors.black),
+                    hintText: 'Enter your Username',
                   ),
                 ),
               ),
@@ -59,9 +60,17 @@ class _LoginState extends State<Login> {
               child: Container(
                 child: const TextField(
                   obscureText: true,
+                  cursorColor: Colors.black,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
                     labelText: 'Password',
+                    labelStyle: TextStyle(color: Colors.black),
+                    hintText: 'Enter your Password',
                   ),
                 ),
               ),
