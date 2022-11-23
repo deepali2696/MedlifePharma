@@ -61,21 +61,8 @@ class _LoginState extends State<Login> {
                       hintText: 'Enter secure password'),
                 ),
               ),
-          Container(
-          height: 50,
-          width: 150,
-          margin: EdgeInsets.only(top: 50),
-          decoration: BoxDecoration(
-              color: Color(0xFF4F7F84), borderRadius: BorderRadius.circular(20)),
 
-          child: const Padding(padding: EdgeInsets.only(top: 10),
-            child:  Text(
-              'Login',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white, fontSize: 20,),
-            ),
-          ),
-          )  ],
+            ],
           )
     ),
     );
