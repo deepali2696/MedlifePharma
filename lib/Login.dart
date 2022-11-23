@@ -70,9 +70,28 @@ class _LoginState extends State<Login> {
                   hintText: 'Enter your Password',
                 ),
               ),
+            ),
+
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 40.0,
+                      width: 90.0,
+                      child: ElevatedButton(
+                        child: Text('Login'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF4f7f84),
+                          textStyle: const TextStyle(fontSize: 20.0),
+                        ),
+                        onPressed: () {},
+                      ),
+                    )
+                  ],
+                ),
             )
-
-
           ],
         ),
       ),
