@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -24,47 +23,61 @@ class _LoginState extends State<Login> {
         ),
       ),
       body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Padding(padding: const EdgeInsets.only(top: 60.0),
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 60.0),
               child: Center(
                 child: Container(
-                  color: Color(0xFF4F7F84),
-                  width: double.infinity,
-                  height: 150,
-                  margin: EdgeInsets.only(bottom: 50),
-                  /*decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular((50.0)),*/
-                      child: Image.asset('logo/Logo2.png')),
-                ),
+                    color: Color(0xFF4F7F84),
+                    width: double.infinity,
+                    height: 150,
+                    margin: EdgeInsets.only(bottom: 70.0),
+                    child: Image.asset('logo/Logo2.png')),
               ),
-              const Padding(
-                //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: TextField(
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Container(
+                child: const TextField(
+                  cursorColor: Colors.black,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Email',
-                      hintText: 'Enter valid email id as abc@gmail.com'),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    labelText: 'Username',
+                    labelStyle: TextStyle(color: Colors.black),
+                    hintText: 'Enter your Username',
+                  ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(
-                    left: 15.0, right: 15.0, top: 15, bottom: 0),
-                //padding: EdgeInsets.symmetric(horizontal: 15),
-                child: TextField(
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              child: Container(
+                child: const TextField(
                   obscureText: true,
+                  cursorColor: Colors.black,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                      hintText: 'Enter secure password'),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    labelText: 'Password',
+                    labelStyle: TextStyle(color: Colors.black),
+                    hintText: 'Enter your Password',
+                  ),
                 ),
               ),
-
-            ],
-          )
-    ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'Stock_Manager/Stock_Products.dart';
+import 'Stock_Manager/Stock_Products_List.dart';
 import 'Login.dart';
-import 'OrderClerk/Client.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: client(),
+      home: stockproductslist(),
     );
   }
 }
