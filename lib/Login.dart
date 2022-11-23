@@ -36,42 +36,38 @@ class _LoginState extends State<Login> {
                     child: Image.asset('logo/Logo2.png')),
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
-              child: Container(
-                child: const TextField(
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
-                    labelText: 'Username',
-                    labelStyle: TextStyle(color: Colors.black),
-                    hintText: 'Enter your Username',
+              child: TextField(
+                cursorColor: Colors.black,
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black),
                   ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black),
+                  ),
+                  labelText: 'Username',
+                  labelStyle: TextStyle(color: Colors.black),
+                  hintText: 'Enter your Username',
                 ),
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-              child: Container(
-                child: const TextField(
-                  obscureText: true,
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
-                    labelText: 'Password',
-                    labelStyle: TextStyle(color: Colors.black),
-                    hintText: 'Enter your Password',
+              child: TextField(
+                obscureText: true,
+                cursorColor: Colors.black,
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black),
                   ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black),
+                  ),
+                  labelText: 'Password',
+                  labelStyle: TextStyle(color: Colors.black),
+                  hintText: 'Enter your Password',
                 ),
               ),
             )
