@@ -70,7 +70,7 @@ class _LoginState extends State<Login> {
                   hintText: 'Enter your Password',
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

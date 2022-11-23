@@ -79,8 +79,26 @@ class _stockproductlistsstate extends State<stockproductslist> {
                 )
               ],
             ),
-            Column(
+            Row(
+              children: <Widget>[
+                DataTable(columns: const [
+                  DataColumn(label: Text('Product Id'),),
+                  DataColumn(label: Text('Product Type'),),
+                  DataColumn(label: Text('Product Name'),),
+                  DataColumn(label: Text('Product Quantity'),),
+                  DataColumn(label: Text('Product Price'),),
+                ], rows: const [
+                  DataRow(
+                      cells: [
+                        DataCell(Text('0125')),
+                        DataCell(Text('Cetaphill')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                      ]),
 
+                ])
+              ],
             ),
           ],
         ),
