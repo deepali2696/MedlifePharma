@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmamanagementsystem/reusable/screentitle.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class stockproducts extends StatefulWidget {
@@ -124,19 +125,5 @@ class _stockproductsstate extends State<stockproducts> {
     );
   }
 }
-class screentitle extends StatelessWidget {
-  const screentitle({required this.title});
 
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: 70.0,
-      child: Text(title,
-          style: GoogleFonts.acme(fontSize: 28.0, color: Colors.black45)),
-    );
-  }
-}
 
