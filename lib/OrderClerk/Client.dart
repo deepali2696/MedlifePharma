@@ -1,15 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main(){
-  runApp(client());
-}
 
 class client extends StatefulWidget{
   _clientState createState() => _clientState();
 }
-
-
 
 class _clientState extends State<client> {
   @override

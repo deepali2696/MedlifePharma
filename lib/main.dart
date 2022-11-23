@@ -4,7 +4,6 @@ import 'Stock_Manager/Stock_Products.dart';
 import 'Login.dart';
 import 'OrderClerk/Client.dart';
 
-
 void main() {
   runApp(MyApp());
 }
