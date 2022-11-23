@@ -76,7 +76,7 @@ class _orderState extends State<order>  {
               ),
               Column(
                 children: <Widget>[
-                  textformfield(Textfieldtitle: 'Order ID', ),
+                  textformfield(Textfieldtitle: 'Order ID',),
                   textformfield(Textfieldtitle: 'Product Name',),
                   textformfield(Textfieldtitle: 'Client Name',),
                   textformfield(Textfieldtitle: 'Quantity',),
