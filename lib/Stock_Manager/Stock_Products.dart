@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmamanagementsystem/reusable/imagecard.dart';
-import 'package:pharmamanagementsystem/reusable/screentitle.dart';
+import 'package:pharmamanagementsystem/reusable/screentitle.dart'
+    '';
 import 'package:google_fonts/google_fonts.dart';
 
 class stockproducts extends StatefulWidget {
@@ -48,16 +49,16 @@ class _stockproductsstate extends State<stockproducts> {
                 children: const <Widget>[
                   ButtonBar(
                     alignment: MainAxisAlignment.center,
-                    children: [
-                      menuoption(
-                          menutext: 'Prodcuts', padlef: 70.0, autofocus: true),
-                      menuoption(
-                        menutext: 'Stocks',
-                      ),
-                      menuoption(
-                        menutext: 'Orders',
-                      )
-                    ],
+                    // children: [
+                    //   menuoption(
+                    //       menutext: 'Prodcuts', padlef: 70.0, autofocus: true),
+                    //   menuoption(
+                    //     menutext: 'Stocks',
+                    //   ),
+                    //   menuoption(
+                    //     menutext: 'Orders',
+                    //   )
+                    // ],
                   )
                 ],
               ),
@@ -77,47 +78,81 @@ class _stockproductsstate extends State<stockproducts> {
                 )
               ],
             ),
-            Column(
-              children: const <Widget>[
-                textformfield(
-                  Textfieldtitle: 'Product Id',
-                ),
-                textformfield(
-                  Textfieldtitle: 'Product Type',
-                ),
-                textformfield(
-                  Textfieldtitle: 'Product Name',
-                ),
-                textformfield(
-                  Textfieldtitle: 'Quantity',
-                ),
-                textformfield(
-                  Textfieldtitle: 'Price',
-                ),
-              ],
-            ),
-            Column(
+            // Column(
+            //   children: const <Widget>[
+            //     textformfield(
+            //       Textfieldtitle: 'Product Id',
+            //     ),
+            //     textformfield(
+            //       Textfieldtitle: 'Product Type',
+            //     ),
+            //     textformfield(
+            //       Textfieldtitle: 'Product Name',
+            //     ),
+            //     textformfield(
+            //       Textfieldtitle: 'Quantity',
+            //     ),
+            //     textformfield(
+            //       Textfieldtitle: 'Price',
+            //     ),
+            //   ],
+            // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 50.0),
-                  child: Container(
+                // Padding(
+                //   padding: EdgeInsets.only(top: 50.0),
+                //   child: Container(
+                //     child: SizedBox(
+                //       width: 100.0,
+                //       height: 35.0,
+                //       child: ElevatedButton(
+                //         onPressed: () {},
+                //         style: TextButton.styleFrom(
+                //             backgroundColor: Color(0xFFe6ea80)),
+                //         child: Text(
+                //           'Save',
+                //           style:
+                //               TextStyle(color: Colors.black87, fontSize: 15.0),
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                Container(
+                  child: SizedBox(
                     child: SizedBox(
-                      width: 100.0,
-                      height: 35.0,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                            backgroundColor: Color(0xFFe6ea80)),
-                        child: Text(
-                          'Save',
-                          style:
-                              TextStyle(color: Colors.black87, fontSize: 15.0),
-                        ),
-                      ),
-                    ),
-                    //
+                            width: 100.0,
+                            height: 35.0,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: TextButton.styleFrom(
+                                  backgroundColor: Color(0xFFe6ea80)),
+                              child: Text(
+                                'Save',
+                                style:
+                                    TextStyle(color: Colors.black87, fontSize: 15.0),
+                              ),
+                            ),
+                          ),
                   ),
-                )
+                ),
+                Container(
+                  child: SizedBox(
+                          width: 100.0,
+                          height: 35.0,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                                backgroundColor: Color(0xFFe6ea80)),
+                            child: Text(
+                              'Save',
+                              style:
+                                  TextStyle(color: Colors.black87, fontSize: 15.0),
+                            ),
+                          ),
+                        ),
+                ),
               ],
             )
           ],
