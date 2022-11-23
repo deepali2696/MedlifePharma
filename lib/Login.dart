@@ -24,12 +24,12 @@ class _LoginState extends State<Login> {
               ]
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 60.0),
+              padding: const EdgeInsets.only(top: 20.0),
               child: Center(
                 child: Container(
                     color: Color(0xFF4F7F84),
                     width: double.infinity,
-                    height: 150,
+                    height: 180,
                     margin: EdgeInsets.only(bottom: 70.0),
                     child: Image.asset('logo/Logo2.png')),
               ),
