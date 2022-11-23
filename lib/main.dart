@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmamanagementsystem/Admin/adminusersadd.dart';
 
 import 'Stock_Manager/Stock_Products.dart';
 import 'Login.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: order(),
+      home: adminusersadd(),
     );
   }
 }
