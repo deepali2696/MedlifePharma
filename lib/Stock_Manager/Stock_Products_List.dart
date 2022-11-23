@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../reusable/imagecard.dart';
 import '../reusable/screentitle.dart';
 
 class stockproductslist extends StatefulWidget {
@@ -37,6 +38,12 @@ class _stockproductlistsstate extends State<stockproductslist> {
                 ),
               ],
             ),
+            Column(
+              children: const <Widget>[
+                imagecard(),
+              ],
+            ),
+
           ],
         ),
      ),

@@ -4,6 +4,8 @@ import 'package:pharmamanagementsystem/reusable/screentitle.dart'
     '';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../reusable/menucard.dart';
+
 class stockproducts extends StatefulWidget {
   @override
   State<stockproducts> createState() => _stockproductsstate();
@@ -46,19 +48,19 @@ class _stockproductsstate extends State<stockproducts> {
             Container(
               color: const Color(0xFFc3eaf0),
               child: Row(
-                children: const <Widget>[
+                children:const <Widget>[
                   ButtonBar(
                     alignment: MainAxisAlignment.center,
-                    // children: [
-                    //   menuoption(
-                    //       menutext: 'Prodcuts', padlef: 70.0, autofocus: true),
-                    //   menuoption(
-                    //     menutext: 'Stocks',
-                    //   ),
-                    //   menuoption(
-                    //     menutext: 'Orders',
-                    //   )
-                    // ],
+                    children: <Widget>[
+                      menuoption(
+                          menutext: 'Prodcuts', padlef: 70.0, autofocus: true),
+                      menuoption(
+                        menutext: 'Stocks',
+                      ),
+                      menuoption(
+                        menutext: 'Orders',
+                      )
+                    ],
                   )
                 ],
               ),

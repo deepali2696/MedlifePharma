@@ -13,7 +13,7 @@ class imagecard extends StatelessWidget {
       width: double.infinity,
       height: 140.0,
       child: Image.asset(
-        'Logo2.png',
+        'logo/Logo2.png',
         height: 120.0,
       ),
     );
