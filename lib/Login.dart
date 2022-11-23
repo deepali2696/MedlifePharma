@@ -36,11 +36,14 @@ class _LoginState extends State<Login> {
                   /*decoration: BoxDecoration(
                     color: Colors.red,
                     borderRadius: BorderRadius.circular((50.0)),*/
-                  child: Image.asset('logo/Logo2.png')),
+                  child: Image.asset('logo/Logo2.png')
+              ),
             ),
           ),
         ],
-      )),
+      ),
+
+      ),
     );
   }
 }
