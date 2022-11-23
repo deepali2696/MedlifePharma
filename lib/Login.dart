@@ -39,8 +39,9 @@ class _LoginState extends State<Login> {
                       child: Image.asset('assets/Logo.png')),
                 ),
               ),
-              )  ],
-          )),
+                ],
+          )
+    ),
     );
   }
 }
