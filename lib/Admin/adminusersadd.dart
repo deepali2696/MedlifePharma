@@ -87,7 +87,6 @@ class _adminusersadd extends State<adminusersadd> {
             ),
           ],
         ),
-
         Row(
           children: <Widget>[
             Container(
@@ -106,9 +105,8 @@ class _adminusersadd extends State<adminusersadd> {
                     ),
                   ),
                 )),
-
             Container(
-                padding: EdgeInsets.fromLTRB(50.0, 15.0, 30.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(50.0, 15.0, 30.0, 0.0),
                 child: SizedBox(
                   height: 40.0,
                   width: 110.0,
@@ -117,7 +115,7 @@ class _adminusersadd extends State<adminusersadd> {
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.yellow,
                     ),
-                    child: Text(
+                    child: const Text(
                       'List User',
                       style: TextStyle(color: Colors.black87, fontSize: 15.0),
                     ),
@@ -125,22 +123,6 @@ class _adminusersadd extends State<adminusersadd> {
                 ))
           ],
         )
-        /*Container(
-            padding: EdgeInsets.only(top: 15.0),
-            child: SizedBox(
-              height: 40.0,
-              width: 90.0,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.yellow,
-                ),
-                child: Text(
-                  'Save',
-                  style: TextStyle(color: Colors.black87, fontSize: 15.0),
-                ),
-              ),
-            ))*/
       ])),
     );
   }
