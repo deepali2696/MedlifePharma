@@ -15,7 +15,7 @@ class _stockproductlistsstate extends State<stockproductslist> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF7ab4bd),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Column(
           children: <Widget>[
             Row(
@@ -79,103 +79,116 @@ class _stockproductlistsstate extends State<stockproductslist> {
                 )
               ],
             ),
-            Padding(
-                padding: EdgeInsets.symmetric(horizontal: 5.0,vertical: 10.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: <Widget>[
-                    DataTable(
-                        sortAscending: true,
-                        sortColumnIndex: 3,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(5.0))
-                        ),
-                        columnSpacing: 30.0,
-                        columns: const [
-                          DataColumn(
-                            label: Text('Id'),
-                          ),
-                          DataColumn(label: Text('Type'),),
-                          DataColumn(label: Text('Name'),),
-                          DataColumn(label: Text('Quantity'),),
-                          DataColumn(label: Text('Price'),),
-                        ],
-                        rows: const [
-                          DataRow(
-                              cells: [
-                                DataCell(Text('0125')),
-                                DataCell(Text('Cetaphill')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                              ]),
-                          DataRow(
-                              cells: [
-                                DataCell(Text('0125')),
-                                DataCell(Text('Cetaphill')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                              ]),
-                          DataRow(
-                              cells: [
-                                DataCell(Text('0125')),
-                                DataCell(Text('Cetaphill')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                              ]),
-                          DataRow(
-                              cells: [
-                                DataCell(Text('0125')),
-                                DataCell(Text('Cetaphill')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                              ]),
-                          DataRow(
-                              cells: [
-                                DataCell(Text('0125')),
-                                DataCell(Text('Cetaphill')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                              ]),
-                          DataRow(
-                              cells: [
-                                DataCell(Text('0125')),
-                                DataCell(Text('Cetaphill')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                              ]),
-                          DataRow(
-                              cells: [
-                                DataCell(Text('0125')),
-                                DataCell(Text('Cetaphill')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                              ]),
-                          DataRow(
-                              cells: [
-                                DataCell(Text('0125')),
-                                DataCell(Text('Cetaphill')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                                DataCell(Text('0125')),
-                              ]),
-                        ])
-                  ],
-
-              )
-              ),
+            Row(
+              children: const [
+                scrollabledatatable(),
+              ],
             )
 
           ],
         ),
+      ),
+    );
+  }
+}
+
+class scrollabledatatable extends StatelessWidget {
+  const scrollabledatatable({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5.0,vertical: 10.0),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Column(
+          children: <Widget>[
+            DataTable(
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5.0))
+                ),
+                columnSpacing: 30.0,
+                columns: const [
+                  DataColumn(
+                    label: Text('Id'),
+                  ),
+                  DataColumn(label: Text('Type'),),
+                  DataColumn(label: Text('Name'),),
+                  DataColumn(label: Text('Quantity'),),
+                  DataColumn(label: Text('Price'),),
+                ],
+                rows: const [
+                  DataRow(
+                      cells: [
+                        DataCell(Text('0125')),
+                        DataCell(Text('Cetaphill')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                      ]),
+                  DataRow(
+                      cells: [
+                        DataCell(Text('0125')),
+                        DataCell(Text('Cetaphill')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                      ]),
+                  DataRow(
+                      cells: [
+                        DataCell(Text('0125')),
+                        DataCell(Text('Cetaphill')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                      ]),
+                  DataRow(
+                      cells: [
+                        DataCell(Text('0125')),
+                        DataCell(Text('Cetaphill')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                      ]),
+                  DataRow(
+                      cells: [
+                        DataCell(Text('0125')),
+                        DataCell(Text('Cetaphill')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                      ]),
+                  DataRow(
+                      cells: [
+                        DataCell(Text('0125')),
+                        DataCell(Text('Cetaphill')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                      ]),
+                  DataRow(
+                      cells: [
+                        DataCell(Text('0125')),
+                        DataCell(Text('Cetaphill')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                      ]),
+                  DataRow(
+                      cells: [
+                        DataCell(Text('0125')),
+                        DataCell(Text('Cetaphill')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                        DataCell(Text('0125')),
+                      ]),
+                ])
+          ],
+
+      )
       ),
     );
   }

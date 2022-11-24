@@ -76,7 +76,7 @@ class _clientState extends State<client> {
               ],
             ),
         Column(
-          children: <Widget>[
+          children: const <Widget>[
             textformfield(Textfieldtitle: 'Client ID', ),
             textformfield(Textfieldtitle: 'Email',),
             textformfield(Textfieldtitle: 'Mobile Number',),

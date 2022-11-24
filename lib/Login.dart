@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmamanagementsystem/reusable/screentitle.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -84,7 +85,7 @@ class _LoginState extends State<Login> {
                           backgroundColor: Color(0xFF4f7f84),
                           textStyle: const TextStyle(fontSize: 20.0),
                         ),
-                        onPressed: () {},
+                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  stockproducts()),),
                       ),
                     )
                   ],
