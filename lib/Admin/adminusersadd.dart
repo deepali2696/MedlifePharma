@@ -97,7 +97,7 @@ class _adminusersadd extends State<adminusersadd> {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.yellow,
+                      backgroundColor: Color(0xFF4f7f84),
                     ),
                     child: const Text(
                       'Save',
@@ -113,7 +113,7 @@ class _adminusersadd extends State<adminusersadd> {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.yellow,
+                      backgroundColor: Color(0xFF4f7f84),
                     ),
                     child: const Text(
                       'List User',
