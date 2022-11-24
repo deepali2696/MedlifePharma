@@ -13,6 +13,7 @@ class stockproductslist extends StatefulWidget {
 class _stockproductlistsstate extends State<stockproductslist> {
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: Color(0xFF7ab4bd),
       body: SafeArea(
@@ -70,7 +71,7 @@ class _stockproductlistsstate extends State<stockproductslist> {
                   padding: EdgeInsets.fromLTRB(30.0, 15.0, 0.0, 0.0),
                   alignment: Alignment.centerLeft,
                   child: const Text(
-                    'List Products',
+                    'List of Products',
                     style: TextStyle(
                         fontSize: 17.0,
                         color: Colors.black87,
@@ -82,6 +83,49 @@ class _stockproductlistsstate extends State<stockproductslist> {
             Row(
               children: const [
                 scrollabledatatable(),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Padding(padding: EdgeInsets.only(top: 20.0),
+                  child: ButtonBar(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 130.0,
+                        height: 35.0,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                              backgroundColor: const Color(0xFFe6ea80)),
+                          child:const Text(
+                            'Add Products',
+                            style:
+                            TextStyle(color: Colors.black87, fontSize: 15.0),
+                          ),
+                        ),
+                      ),
+                      Spacer(
+                        flex: 2,
+                      ),
+
+                      SizedBox(
+                        width: 130.0,
+                        height: 35.0,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                              backgroundColor: const Color(0xFFe6ea80)),
+                          child: const Text(
+                            'Update/Delete',
+                            style:
+                            TextStyle(color: Colors.black87, fontSize: 15.0),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),)
+
               ],
             )
 

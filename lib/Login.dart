@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pharmamanagementsystem/reusable/screentitle.dart';
 import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
+import 'package:firebase_database/firebase_database.dart';
+
 
 class Login extends StatefulWidget {
   @override
@@ -8,6 +10,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  FirebaseDatabase database = FirebaseDatabase.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

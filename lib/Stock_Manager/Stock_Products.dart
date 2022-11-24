@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmamanagementsystem/reusable/imagecard.dart';
 import 'package:pharmamanagementsystem/reusable/screentitle.dart'
@@ -13,8 +14,21 @@ class stockproducts extends StatefulWidget {
 }
 
 class _stockproductsstate extends State<stockproducts> {
+
+  TextEditingController prodcuidcon = TextEditingController();
+  TextEditingController prodcutypecon = TextEditingController();
+  TextEditingController prodcunamecon = TextEditingController();
+  TextEditingController prodcuquancon = TextEditingController();
+  TextEditingController prodcupricecon = TextEditingController();
+
+  final db = FirebaseDatabase.instance;
+
+
+
   @override
   Widget build(BuildContext context) {
+
+    final ref = db.ref().child('Product');
     return Scaffold(
       backgroundColor: Color(0xFF7ab4bd),
       body: SingleChildScrollView(
@@ -82,21 +96,21 @@ class _stockproductsstate extends State<stockproducts> {
               ],
             ),
             Column(
-              children:const <Widget>[
+              children:<Widget>[
                 textformfield(
-                  Textfieldtitle: 'Product Id',
+                  Textfieldtitle: 'Product Id',controller: prodcuidcon,
                 ),
                 textformfield(
-                  Textfieldtitle: 'Product Type',
+                  Textfieldtitle: 'Product Type',controller: prodcutypecon,
                 ),
                 textformfield(
-                  Textfieldtitle: 'Product Name',
+                  Textfieldtitle: 'Product Name',controller: prodcunamecon,
                 ),
                 textformfield(
-                  Textfieldtitle: 'Quantity',
+                  Textfieldtitle: 'Quantity',controller: prodcuquancon,
                 ),
                 textformfield(
-                  Textfieldtitle: 'Price',
+                  Textfieldtitle: 'Price',controller: prodcupricecon,
                 ),
               ],
             ),
