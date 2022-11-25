@@ -1,26 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 import '../reusable/imagecard.dart';
 import '../reusable/menucard.dart';
 import '../reusable/screentitle.dart';
-import 'Stock_Products_List.dart';
 
-class stockmanagerstock extends StatefulWidget {
-  const stockmanagerstock({Key? key}) : super(key: key);
+class stockmanagerorder extends StatefulWidget {
 
   @override
-  State<stockmanagerstock> createState() => _stockmanagerstockState();
+  State<stockmanagerorder> createState() => _stockmanagerorderState();
 }
 
-class _stockmanagerstockState extends State<stockmanagerstock> {
+class _stockmanagerorderState extends State<stockmanagerorder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF7ab4bd),
-      body: SingleChildScrollView(
-        child:
-        Column(
+        backgroundColor: Color(0xFF7ab4bd),
+        body: SingleChildScrollView(
+          child:
+          Column(
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -33,13 +32,13 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                     height: 70.0,
                     child: SizedBox(
                         child: TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(backgroundColor: Colors.red),
-                      child: const Text(
-                        'Logout',
-                        style: TextStyle(fontSize: 17.0, color: Colors.black87),
-                      ),
-                    )),
+                          onPressed: () {},
+                          style: TextButton.styleFrom(backgroundColor: Colors.red),
+                          child: const Text(
+                            'Logout',
+                            style: TextStyle(fontSize: 17.0, color: Colors.black87),
+                          ),
+                        )),
                   ),
                 ],
               ),
@@ -58,10 +57,10 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                         menuoption(
                             menutext: 'Prodcuts', padlef: 70.0),
                         menuoption(
-                          menutext: 'Stocks',  autofocus: true
+                          menutext: 'Stocks',
                         ),
                         menuoption(
-                          menutext: 'Orders',
+                          menutext: 'Orders',  autofocus: true,
                         )
                       ],
                     )
@@ -74,7 +73,7 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                     padding: EdgeInsets.fromLTRB(30.0, 15.0, 0.0, 0.0),
                     alignment: Alignment.centerLeft,
                     child: const Text(
-                      'List of Stock on Hand',
+                      'Listed information of orders placed',
                       style: TextStyle(
                           fontSize: 17.0,
                           color: Colors.black87,
@@ -95,27 +94,30 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                       child: Column(
                         children: <Widget>[
                           DataTable(
-                            dividerThickness: 5,
+                              dividerThickness: 5,
                               decoration: const BoxDecoration(
                                   color: Colors.white,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(5.0))),
+                                  BorderRadius.all(Radius.circular(5.0))),
                               columnSpacing: 30.0,
                               columns: const [
                                 DataColumn(
-                                  label: Text('Product Id'),
-                                ),
-                                DataColumn(
-                                  label: Text('Product Type'),
+                                  label: Text('Order Id'),
                                 ),
                                 DataColumn(
                                   label: Text('Product Name'),
                                 ),
                                 DataColumn(
-                                  label: Text('Product Quantity'),
+                                  label: Text('Client Name'),
                                 ),
                                 DataColumn(
-                                  label: Text('Product Price'),
+                                  label: Text('Quantity of order'),
+                                ),
+                                DataColumn(
+                                  label: Text('Total Price'),
+                                ),
+                                DataColumn(
+                                  label: Text('Order Date'),
                                 ),
                               ],
                               rows: const [
@@ -125,12 +127,6 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                 ]),
                                 DataRow(cells: [
@@ -139,17 +135,13 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+
                                 ]),
                                 DataRow(cells: [
                                   DataCell(Text('0125')),
                                   DataCell(Text('Cetaphill')),
                                   DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
@@ -160,6 +152,15 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('Cetaphill')),
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
                                 ]),
                                 DataRow(cells: [
                                   DataCell(Text('0125')),
@@ -167,10 +168,20 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
                                 ]),
                                 DataRow(cells: [
                                   DataCell(Text('0125')),
                                   DataCell(Text('Cetaphill')),
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('Cetaphill')),
+                                  DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
@@ -180,11 +191,6 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
-                                ]),DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                 ]),DataRow(cells: [
                                   DataCell(Text('0125')),
@@ -192,15 +198,25 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+                                ]),DataRow(cells: [
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('Cetaphill')),
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
                                 ]),DataRow(cells: [
                                   DataCell(Text('0125')),
                                   DataCell(Text('Cetaphill')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
+                                  DataCell(Text('0125')),
                                 ]),DataRow(cells: [
                                   DataCell(Text('0125')),
                                   DataCell(Text('Cetaphill')),
+                                  DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
                                   DataCell(Text('0125')),
@@ -372,11 +388,11 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                 ],
               )
             ],
-          // child: Column(
-          //
-          // ),
-        ),
-      )
+            // child: Column(
+            //
+            // ),
+          ),
+        )
 
     );
   }
