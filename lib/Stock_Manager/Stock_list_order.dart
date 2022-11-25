@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_list_stock.dart';
+import 'package:pharmamanagementsystem/reusable/logoutcard.dart';
 
 
 import '../reusable/imagecard.dart';
@@ -27,19 +30,7 @@ class _stockmanagerorderState extends State<stockmanagerorder> {
                   const screentitle(
                     title: 'STOCK MANAGER',
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 70.0,
-                    child: SizedBox(
-                        child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(backgroundColor: Colors.red),
-                          child: const Text(
-                            'Logout',
-                            style: TextStyle(fontSize: 17.0, color: Colors.black87),
-                          ),
-                        )),
-                  ),
+                  const logoutbtn(),
                 ],
               ),
               Column(
@@ -50,17 +41,17 @@ class _stockmanagerorderState extends State<stockmanagerorder> {
               Container(
                 color: const Color(0xFFc3eaf0),
                 child: Row(
-                  children: const <Widget>[
+                  children: <Widget>[
                     ButtonBar(
                       alignment: MainAxisAlignment.center,
                       children: <Widget>[
                         menuoption(
-                            menutext: 'Prodcuts', padlef: 70.0),
+                            menutext: 'Prodcuts', padlef: 70.0,des: stockproducts(),),
                         menuoption(
-                          menutext: 'Stocks',
+                          menutext: 'Stocks',des: stockmanagerstock(),
                         ),
                         menuoption(
-                          menutext: 'Orders',  autofocus: true,
+                          menutext: 'Orders',  autofocus: true,des: stockmanagerorder(),
                         )
                       ],
                     )

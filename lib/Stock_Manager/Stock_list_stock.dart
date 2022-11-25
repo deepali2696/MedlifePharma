@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_list_order.dart';
+import 'package:pharmamanagementsystem/reusable/logoutcard.dart';
 
 import '../reusable/imagecard.dart';
 import '../reusable/menucard.dart';
@@ -28,19 +31,7 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                   const screentitle(
                     title: 'STOCK MANAGER',
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 70.0,
-                    child: SizedBox(
-                        child: TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(backgroundColor: Colors.red),
-                      child: const Text(
-                        'Logout',
-                        style: TextStyle(fontSize: 17.0, color: Colors.black87),
-                      ),
-                    )),
-                  ),
+                  const logoutbtn(),
                 ],
               ),
               Column(
@@ -51,17 +42,17 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
               Container(
                 color: const Color(0xFFc3eaf0),
                 child: Row(
-                  children: const <Widget>[
+                  children: <Widget>[
                     ButtonBar(
                       alignment: MainAxisAlignment.center,
                       children: <Widget>[
                         menuoption(
-                            menutext: 'Prodcuts', padlef: 70.0),
+                            menutext: 'Prodcuts', padlef: 70.0,des: stockproducts(),),
                         menuoption(
-                          menutext: 'Stocks',  autofocus: true
+                          menutext: 'Stocks',  autofocus: true,des: stockmanagerstock(),
                         ),
                         menuoption(
-                          menutext: 'Orders',
+                          menutext: 'Orders',des: stockmanagerorder(),
                         )
                       ],
                     )

@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmamanagementsystem/OrderClerk/Orders.dart';
 import 'package:pharmamanagementsystem/reusable/imagecard.dart';
+import 'package:pharmamanagementsystem/reusable/logoutcard.dart';
 import 'package:pharmamanagementsystem/reusable/menucard.dart';
 import 'package:pharmamanagementsystem/reusable/screentitle.dart';
 import 'package:pharmamanagementsystem/reusable/userinputcard.dart';
+
+import 'Client.dart';
 
 class listofclient extends StatefulWidget {
   _listofclient createState() => _listofclient();
@@ -21,18 +25,7 @@ class _listofclient extends State<listofclient>{
              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
              children: <Widget>[
                const screentitle(title: 'Order Clerk'),
-               Container(
-                 alignment: Alignment.center,
-                 height: 70.0,
-                 child: SizedBox(
-                   child: TextButton(
-                     onPressed: () {},
-                     style: TextButton.styleFrom(backgroundColor: Colors.red),
-                     child: const Text('Logout',style: TextStyle(
-                     fontSize: 17.0,color: Colors.black87),
-                   ),),
-                   ),
-                 ),
+               const logoutbtn(),
              ],
            ),
            Column(
@@ -43,14 +36,14 @@ class _listofclient extends State<listofclient>{
            Container(
              color: const Color(0xFFc3eaf0),
              child: Row(
-               children:const <Widget>[
+               children:<Widget>[
                  ButtonBar(
                    alignment: MainAxisAlignment.center,
                    children: <Widget>[
                      menuoption(
-                         menutext: 'Client', padlef: 70.0, autofocus: true),
+                         menutext: 'Client', padlef: 70.0, autofocus: true,des: client(),),
                      menuoption(
-                         menutext: 'Orders', padlef: 80.0, autofocus: false)
+                         menutext: 'Orders', padlef: 80.0, autofocus: false,des: order(),)
                    ],
                  )
                ],
@@ -194,55 +187,3 @@ class _listofclient extends State<listofclient>{
   }
 }
 
-
-class scrollabledatatable extends StatelessWidget {
-  const scrollabledatatable({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.symmetric(horizontal: 5.0,vertical: 10.0),
-      child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Column(
-            children: <Widget>[
-              DataTable(
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(5.0))
-                  ),
-                  columnSpacing: 30.0,
-                  columns: const [
-                    DataColumn(
-                      label: Text('Client Id'),
-                    ),
-                    DataColumn(label: Text('Email'),),
-                    DataColumn(label: Text('Phone Number'),),
-                    DataColumn(label: Text('Pharmacy Name'),),
-                    DataColumn(label: Text('License Number'),),
-                  ],
-                  rows: const [
-                    DataRow(
-                        cells: [
-                          DataCell(Text('0001')),
-                          DataCell(Text('Cetaphill.com')),
-                          DataCell(Text('8141224343')),
-                          DataCell(Text('Dolo')),
-                          DataCell(Text('1023')),
-                        ]),
-                    DataRow(
-                        cells: [
-                          DataCell(Text('0002')),
-                          DataCell(Text('viks.com')),
-                          DataCell(Text('5145858481')),
-                          DataCell(Text('vik')),
-                          DataCell(Text('1024')),
-                        ]),
-                  ])
-            ],
-          )
-      ),
-    );
-  }
-}

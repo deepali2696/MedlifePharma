@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmamanagementsystem/reusable/imagecard.dart';
+import 'package:pharmamanagementsystem/reusable/logoutcard.dart';
 import 'package:pharmamanagementsystem/reusable/menucard.dart';
 import 'package:pharmamanagementsystem/reusable/screentitle.dart';
 import 'package:pharmamanagementsystem/reusable/userinputcard.dart';
+
+import 'Client.dart';
 
 class order extends StatefulWidget{
   _orderState createState() => _orderState();
@@ -23,19 +26,7 @@ class _orderState extends State<order>  {
                   const screentitle(
                     title: 'ORDER CLERK',
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 70.0,
-                    child: SizedBox(
-                        child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(backgroundColor: Colors.red),
-                          child: const Text(
-                            'Logout',
-                            style: TextStyle(fontSize: 17.0, color: Colors.black87),
-                          ),
-                        )),
-                  ),
+                 const logoutbtn(),
                 ],
               ),
               Column(
@@ -46,14 +37,14 @@ class _orderState extends State<order>  {
               Container(
                 color: const Color(0xFFc3eaf0),
                 child: Row(
-                  children:const <Widget>[
+                  children:<Widget>[
                     ButtonBar(
                       alignment: MainAxisAlignment.center,
                       children: <Widget>[
                         menuoption(
-                            menutext: 'Client', padlef: 70.0, autofocus: false),
+                            menutext: 'Client', padlef: 70.0, autofocus: false,des: client(),),
                         menuoption(
-                            menutext: 'Orders', padlef: 80.0, autofocus: true)
+                            menutext: 'Orders', padlef: 80.0, autofocus: true,des: order(),)
                       ],
                     )
                   ],

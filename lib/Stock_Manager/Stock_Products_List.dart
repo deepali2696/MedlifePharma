@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_list_order.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_list_stock.dart';
+import 'package:pharmamanagementsystem/reusable/logoutcard.dart';
 
 import '../reusable/imagecard.dart';
 import '../reusable/menucard.dart';
@@ -25,19 +29,7 @@ class _stockproductlistsstate extends State<stockproductslist> {
                 const screentitle(
                   title: 'STOCK MANAGER',
                 ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 70.0,
-                  child: SizedBox(
-                      child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(backgroundColor: Colors.red),
-                    child: const Text(
-                      'Logout',
-                      style: TextStyle(fontSize: 17.0, color: Colors.black87),
-                    ),
-                  )),
-                ),
+                const logoutbtn(),
               ],
             ),
             Column(
@@ -48,17 +40,17 @@ class _stockproductlistsstate extends State<stockproductslist> {
             Container(
               color: const Color(0xFFc3eaf0),
               child: Row(
-                children: const <Widget>[
+                children: <Widget>[
                   ButtonBar(
                     alignment: MainAxisAlignment.center,
                     children: <Widget>[
                       menuoption(
-                          menutext: 'Prodcuts', padlef: 70.0, autofocus: true),
+                          menutext: 'Prodcuts', padlef: 70.0, autofocus: true,des: stockproducts(),),
                       menuoption(
-                        menutext: 'Stocks',
+                        menutext: 'Stocks',des:stockmanagerstock()
                       ),
                       menuoption(
-                        menutext: 'Orders',
+                        menutext: 'Orders',des: stockmanagerorder(),
                       )
                     ],
                   )
@@ -225,7 +217,7 @@ class _stockproductlistsstate extends State<stockproductslist> {
                         width: 130.0,
                         height: 35.0,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  stockproducts()),),
                           style: TextButton.styleFrom(
                               backgroundColor: const Color(0xFFe6ea80)),
                           child:const Text(
