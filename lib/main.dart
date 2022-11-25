@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmamanagementsystem/OrderClerk/listofclient.dart';
 import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products_List.dart';
 
 import 'Stock_Manager/Stock_Products.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: stockmanagerorder(),
+      home: listofclient(),
     );
   }
 }
