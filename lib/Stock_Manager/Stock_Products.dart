@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmamanagementsystem/reusable/imagecard.dart';
 import 'package:pharmamanagementsystem/reusable/screentitle.dart'
@@ -15,13 +16,48 @@ class stockproducts extends StatefulWidget {
 
 class _stockproductsstate extends State<stockproducts> {
 
-  TextEditingController prodcuidcon = TextEditingController();
-  TextEditingController prodcutypecon = TextEditingController();
-  TextEditingController prodcunamecon = TextEditingController();
-  TextEditingController prodcuquancon = TextEditingController();
-  TextEditingController prodcupricecon = TextEditingController();
-
   final db = FirebaseDatabase.instance;
+
+  final _formkey = GlobalKey<FormState>();
+
+  String product_id = '';
+  String product_type = '';
+  String product_name = '';
+  String product_quantity = '';
+  String product_price = '';
+
+  final pro_idController = TextEditingController();
+  final pro_typeController = TextEditingController();
+  final pro_nameController = TextEditingController();
+  final pro_quanController = TextEditingController();
+  final pro_priceController = TextEditingController();
+
+  _cleartext(){
+    pro_idController.clear();
+    pro_typeController.clear();
+    pro_nameController.clear();
+    pro_quanController.clear();
+    pro_priceController.clear();
+}
+
+  CollectionReference addproduct =
+  FirebaseFirestore.instance.collection('Product');
+  Future<void> _addingproduct() {
+    return addproduct
+        .add({'Productid': product_id, 'Producttype': product_type, 'Productname': product_name,'Productquantity': product_quantity,'Productprice': product_price})
+        .then((value) => print('Product Added'))
+        .catchError((_) => print('Something Error In adding Product'));
+  }
+
+  @override
+  void dispose() {
+    pro_idController.dispose();
+    pro_typeController.dispose();
+    pro_nameController.dispose();
+    pro_quanController.dispose();
+    pro_priceController.dispose();
+    super.dispose();
+  }
 
 
 
@@ -98,19 +134,19 @@ class _stockproductsstate extends State<stockproducts> {
             Column(
               children:<Widget>[
                 textformfield(
-                  Textfieldtitle: 'Product Id',controller: prodcuidcon,
+                  Textfieldtitle: 'Product Id',controller: pro_idController,key: _formkey,
                 ),
                 textformfield(
-                  Textfieldtitle: 'Product Type',controller: prodcutypecon,
+                  Textfieldtitle: 'Product Type',controller: pro_typeController,
                 ),
                 textformfield(
-                  Textfieldtitle: 'Product Name',controller: prodcunamecon,
+                  Textfieldtitle: 'Product Name',controller: pro_nameController,
                 ),
                 textformfield(
-                  Textfieldtitle: 'Quantity',controller: prodcuquancon,
+                  Textfieldtitle: 'Quantity',controller: pro_quanController,
                 ),
                 textformfield(
-                  Textfieldtitle: 'Price',controller: prodcupricecon,
+                  Textfieldtitle: 'Price',controller: pro_priceController,
                 ),
               ],
             ),
@@ -124,7 +160,22 @@ class _stockproductsstate extends State<stockproducts> {
                               width: 100.0,
                               height: 35.0,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  if(_formkey.currentState!.validate())
+                                    {
+                                      setState(() {
+                                        product_id = pro_idController.text;
+                                        product_type = pro_typeController.text;
+                                        product_name= pro_nameController.text;
+                                        product_quantity = pro_quanController.text;
+                                        product_price = pro_priceController.text;
+
+                                        _addingproduct();
+                                        _cleartext();
+                                        Navigator.pop(context);
+                                      });
+                                    }
+                                },
                                 style: TextButton.styleFrom(
                                     backgroundColor: const Color(0xFFe6ea80)),
                                 child:const Text(

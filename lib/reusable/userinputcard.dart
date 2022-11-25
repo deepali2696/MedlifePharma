@@ -3,10 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class textformfield extends StatelessWidget{
-  const textformfield({required this.Textfieldtitle, this.controller});
+  const textformfield({required this.Textfieldtitle, this.controller,this.key});
   
   final String Textfieldtitle;
   final controller;
+  final key;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,7 @@ class textformfield extends StatelessWidget{
             Expanded(
               flex: 3,
               child: TextField(
+                key: key,
                 controller: controller,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(
