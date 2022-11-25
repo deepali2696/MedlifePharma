@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmamanagementsystem/Admin/adminorderlist.dart';
+import 'package:pharmamanagementsystem/Admin/adminstocklist.dart';
 import 'package:pharmamanagementsystem/reusable/imagecard.dart';
+import 'package:pharmamanagementsystem/reusable/logoutcard.dart';
 import 'package:pharmamanagementsystem/reusable/menucard.dart';
 import 'package:pharmamanagementsystem/reusable/userinputcard.dart';
 
 import '../reusable/screentitle.dart';
+import 'adminuserlist.dart';
 
 class adminusersadd extends StatefulWidget {
   @override
@@ -18,23 +22,23 @@ class _adminusersadd extends State<adminusersadd> {
       backgroundColor: Color(0xFF7AB4BD),
       body: SingleChildScrollView(
           child: Column(children: <Widget>[
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Container(
-            child: const screentitle(
-              title: 'Admin',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                const screentitle(title: 'ADMIN'),
+                const logoutbtn(),
+              ],
             ),
-          )
-        ]),
         Column(
           children: const <Widget>[
             imagecard(),
           ],
         ),
         Container(
-          color: Color(0xFFc3eaf0),
+          color: const Color(0xFFc3eaf0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
+            children:  <Widget>[
               ButtonBar(
                 alignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -42,9 +46,10 @@ class _adminusersadd extends State<adminusersadd> {
                     menutext: 'Users',
                     padlef: 10.0,
                     autofocus: true,
+                    des: adminusersadd(),
                   ),
-                  menuoption(menutext: 'Stocks'),
-                  menuoption(menutext: 'Orders'),
+                  menuoption(menutext: 'Stocks', des: adminstocklist(),),
+                  menuoption(menutext: 'Orders', des: adminorderlist(),),
                 ],
               )
             ],
@@ -56,7 +61,7 @@ class _adminusersadd extends State<adminusersadd> {
               padding: EdgeInsets.fromLTRB(30.0, 15.0, 0.0, 0.0),
               alignment: Alignment.centerLeft,
               child: const Text(
-                'Add User',
+                'List Stock',
                 style: TextStyle(
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
@@ -97,7 +102,7 @@ class _adminusersadd extends State<adminusersadd> {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
-                      backgroundColor: Color(0xFF4f7f84),
+                      backgroundColor: Color(0xFFe6ea80),
                     ),
                     child: const Text(
                       'Save',
@@ -111,9 +116,9 @@ class _adminusersadd extends State<adminusersadd> {
                   height: 40.0,
                   width: 110.0,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  adminuserlist()),),
                     style: TextButton.styleFrom(
-                      backgroundColor: Color(0xFF4f7f84),
+                      backgroundColor: Color(0xFFe6ea80),
                     ),
                     child: const Text(
                       'List User',
