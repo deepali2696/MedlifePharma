@@ -265,3 +265,4 @@ class _stockproductlistsstate extends State<stockproductslist> {
     );
   }
 }
+
