@@ -71,53 +71,122 @@ class _listofclient extends State<listofclient>{
                )
              ],
            ),
-           Row(
-             children: const [
-                scrollabledatatable(),
-             ],
-           ),
-         Row(
-           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-           children: <Widget>[
-             Padding(padding: EdgeInsets.only(top: 20.0),
-               child: ButtonBar(
-                 children: <Widget>[
-                   SizedBox(
-                     width: 130.0,
-                     height: 35.0,
-                     child: ElevatedButton(
-                       onPressed: () {},
-                       style: TextButton.styleFrom(
-                           backgroundColor: const Color(0xFFe6ea80)),
-                       child:const Text(
-                         'Add Client',
-                         style:
-                         TextStyle(color: Colors.black87, fontSize: 15.0),
-                       ),
-                     ),
+              Container(
+                width: 700,
+                height: 450,
+                  child: Padding(
+                    padding: EdgeInsets.all(8),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                          child: SingleChildScrollView(scrollDirection: Axis.horizontal,
+                                child: Column(
+                                      children: <Widget>[
+                                      DataTable(
+                                      dividerThickness: 5, decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0))), columnSpacing: 30.0,
+                                      columns: const [
+                                      DataColumn(label: Text('Client Id'),),
+                                      DataColumn(label: Text('Email'),), DataColumn(label: Text('Mobile Number'),),
+                                        DataColumn(label: Text('Pharmacy Name'),),
+                                        DataColumn(label: Text('License Number'),),
+                                      ],
+                                          rows: const [
+                             DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),
+                             DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),
+                             DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),
+                             DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),
+                             DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),
+                             DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),
+                             DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),
+                             DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),DataRow(cells: [
+                               DataCell(Text('0125')),
+                               DataCell(Text('Cetaphill')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                               DataCell(Text('0125')),
+                             ]),
+                           ])
+                     ],
                    ),
-                   Spacer(
-                     flex: 2,
-                   ),
+                 ),
 
-                   SizedBox(
-                     width: 130.0,
-                     height: 35.0,
-                     child: ElevatedButton(
-                       onPressed: () {},
-                       style: TextButton.styleFrom(
-                           backgroundColor: const Color(0xFFe6ea80)),
-                       child: const Text(
-                         'Update/Delete',
-                         style:
-                         TextStyle(color: Colors.black87, fontSize: 15.0),
-                       ),
-                     ),
-                   ),
-                 ],
-               ),)
-           ],
-         )
+               ),
+             ),
+           ),
          ],
        )
      )

@@ -71,53 +71,45 @@ class _listoforder extends State<listoforder>{
                     )
                   ],
                 ),
-                Row(
-                  children: const [
-                    scrollabledatatable(),
-                  ],
+                Container(
+                  width: 700,
+                  height: 450,
+                  child: Padding(
+                    padding: EdgeInsets.all(8),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: SingleChildScrollView(scrollDirection: Axis.horizontal,
+                        child: Column(
+                          children: <Widget>[
+                            DataTable(
+                                dividerThickness: 5, decoration: const BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                BorderRadius.all(Radius.circular(5.0))), columnSpacing: 30.0,
+                                columns: const [
+                                  DataColumn(label: Text('Order ID'),),
+                                  DataColumn(label: Text('Product Name'),),
+                                  DataColumn(label: Text('Client Name'),),
+                                  DataColumn(label: Text('Quantity'),),
+                                  DataColumn(label: Text('Total Amount'),),
+                                  DataColumn(label: Text('Date of Order'),),
+                                ],
+                                rows: const [
+                                  DataRow(cells: [
+                                    DataCell(Text('0125')),
+                                    DataCell(Text('Cetaphill')),
+                                    DataCell(Text('0125')),
+                                    DataCell(Text('0125')),
+                                    DataCell(Text('0125')),
+                                    DataCell(Text('01-02-2022')),
+                                  ]),
+                                ])
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Padding(padding: EdgeInsets.only(top: 20.0),
-                      child: ButtonBar(
-                        children: <Widget>[
-                          SizedBox(
-                            width: 130.0,
-                            height: 35.0,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                  backgroundColor: const Color(0xFFe6ea80)),
-                              child:const Text(
-                                'Add Order',
-                                style:
-                                TextStyle(color: Colors.black87, fontSize: 15.0),
-                              ),
-                            ),
-                          ),
-                          Spacer(
-                            flex: 2,
-                          ),
-
-                          SizedBox(
-                            width: 130.0,
-                            height: 35.0,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                  backgroundColor: const Color(0xFFe6ea80)),
-                              child: const Text(
-                                'Update/Delete',
-                                style:
-                                TextStyle(color: Colors.black87, fontSize: 15.0),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),)
-                  ],
-                )
               ],
             )
         )
@@ -126,58 +118,3 @@ class _listoforder extends State<listoforder>{
 }
 
 
-class scrollabledatatable extends StatelessWidget {
-  const scrollabledatatable({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.symmetric(horizontal: 5.0,vertical: 10.0),
-      child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Column(
-            children: <Widget>[
-              DataTable(
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(5.0))
-                  ),
-                  columnSpacing: 30.0,
-                  columns: const [
-                    DataColumn(
-                      label: Text('Order Id'),
-                    ),
-                    DataColumn(label: Text('Product Name'),),
-                    DataColumn(label: Text('Client Name'),),
-                    DataColumn(label: Text('Quantiy'),),
-                    DataColumn(label: Text('Total Amount'),),
-                    DataColumn(label: Text('OrderDate'),),
-
-                  ],
-                  rows: const [
-                    DataRow(
-                        cells: [
-                          DataCell(Text('00012')),
-                          DataCell(Text('Cetaphill')),
-                          DataCell(Text('vikas')),
-                          DataCell(Text('1')),
-                          DataCell(Text('10')),
-                          DataCell(Text('15-10-2021')),
-                        ]),
-                    DataRow(
-                        cells: [
-                          DataCell(Text('00021')),
-                          DataCell(Text('viks')),
-                          DataCell(Text('hk')),
-                          DataCell(Text('3')),
-                          DataCell(Text('20')),
-                          DataCell(Text('02-11-2022')),
-                        ]),
-                  ])
-            ],
-          )
-      ),
-    );
-  }
-}
