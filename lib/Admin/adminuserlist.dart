@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmamanagementsystem/Admin/adminusersadd.dart';
 
 import '../reusable/imagecard.dart';
+import '../reusable/logoutcard.dart';
 import '../reusable/menucard.dart';
 import '../reusable/screentitle.dart';
 import 'adminorderlist.dart';
@@ -23,23 +24,9 @@ class _adminuserlist extends State<adminuserlist> {
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                const screentitle(title: 'ADMIN'),
-                Container(
-                  alignment: Alignment.center,
-                  height: 70.0,
-                  child: SizedBox(
-                    width: 100.0,
-                    height: 40.0,
-                    child: FloatingActionButton.extended(
-                      extendedTextStyle: TextStyle(fontSize: 17.0),
-                      backgroundColor: Colors.red,
-                      onPressed: () {},
-                      label: Text('Logout'),
-                      icon: Icon(Icons.logout),
-                    ),
-                  ),
-                )
+              children: const <Widget>[
+                screentitle(title: 'ADMIN'),
+                logoutbtn(),
               ],
             ),
             Container(
