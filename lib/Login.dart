@@ -263,6 +263,7 @@ class _loginState extends State<login> {
                         icon: Icon(Icons.login),
                       ),
                     ),
+
                   ),
                 ),
                 Row(children: <Widget>[

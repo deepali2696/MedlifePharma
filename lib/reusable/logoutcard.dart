@@ -25,6 +25,7 @@ class _logoutbtnState extends State<logoutbtn> {
           onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => login()),),
           label: Text('Logout'),
           icon: Icon(Icons.logout),
+
         ),
       ),
     );
