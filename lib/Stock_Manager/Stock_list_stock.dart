@@ -47,7 +47,7 @@ class _stockmanagerstockState extends State<stockmanagerstock> {
                       alignment: MainAxisAlignment.center,
                       children: <Widget>[
                         menuoption(
-                            menutext: 'Prodcuts', padlef: 70.0,des: stockproducts(),),
+                            menutext: 'Prodcuts', padlef: 70.0,des: stock_product(),),
                         menuoption(
                           menutext: 'Stocks',  autofocus: true,des: stockmanagerstock(),
                         ),

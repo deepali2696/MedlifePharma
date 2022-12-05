@@ -46,7 +46,7 @@ class _stockmanagerorderState extends State<stockmanagerorder> {
                       alignment: MainAxisAlignment.center,
                       children: <Widget>[
                         menuoption(
-                            menutext: 'Prodcuts', padlef: 70.0,des: stockproducts(),),
+                            menutext: 'Prodcuts', padlef: 70.0,des: stock_product(),),
                         menuoption(
                           menutext: 'Stocks',des: stockmanagerstock(),
                         ),

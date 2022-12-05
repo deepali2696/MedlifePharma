@@ -8,20 +8,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:146975697415:android:4bf91c48c24280894b58a2",
+        "mobilesdk_app_id": "1:146975697415:android:c93e6ae26ffe02874b58a2",
         "android_client_info": {
           "package_name": "com.example.pharmamanagementsystem"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "146975697415-lmmcot30irdg8kbb9qro2pa9fa64rops.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.pharmamanagementsystem",
-            "certificate_hash": "327073b8ee19af043d2646202683572fb8161312"
-          }
-        },
         {
           "client_id": "146975697415-qr0u3lub6hnhh382lc1bdeev95r1227u.apps.googleusercontent.com",
           "client_type": 3

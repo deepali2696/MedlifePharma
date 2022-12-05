@@ -47,8 +47,8 @@ android {
         applicationId "com.example.pharmamanagementsystem"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -65,17 +65,7 @@ android {
 flutter {
     source '../..'
 }
-plugins {
-    id 'com.android.application'
-
-    // Add the Google services Gradle plugin
-    id 'com.google.gms.google-services'
-
-
-}
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation platform('com.google.firebase:firebase-bom:31.1.0')
-    implementation 'com.google.firebase:firebase-analytics'
 }

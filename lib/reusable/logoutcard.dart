@@ -22,7 +22,7 @@ class _logoutbtnState extends State<logoutbtn> {
         child: FloatingActionButton.extended(
           extendedTextStyle: TextStyle(fontSize: 17.0),
           backgroundColor: Colors.red,
-          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Login()),),
+          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => login()),),
           label: Text('Logout'),
           icon: Icon(Icons.logout),
         ),
