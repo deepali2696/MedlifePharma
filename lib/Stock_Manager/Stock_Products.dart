@@ -545,6 +545,7 @@ class _stock_productState extends State<stock_product> {
                           'productprice' : pro_priceController.text,
                         };
 
+
                         dbRef.push().set(products);
 
                         _cleartext();
