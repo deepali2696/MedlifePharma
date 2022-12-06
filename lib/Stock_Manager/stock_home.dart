@@ -16,10 +16,11 @@ class _stock_homeState extends State<stock_home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage('assets/logo/bg.png'))),
+        body: Container(
+            constraints: const BoxConstraints.expand(),
+            decoration: const BoxDecoration(
+                image: DecorationImage(image: AssetImage('assets/logo/bg.png'),fit: BoxFit.cover)),
+        child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Row(
@@ -112,8 +113,8 @@ class _stock_homeState extends State<stock_home> {
             )
           ],
         ),
-      ),
-    ));
+      )),
+    );
   }
 }
 

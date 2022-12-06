@@ -163,8 +163,14 @@ class _loginState extends State<login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5EBE0),
-      body: SingleChildScrollView(
+      body: Container(
+        constraints: BoxConstraints.expand(),
+      decoration: BoxDecoration(
+      image: DecorationImage(
+      image: AssetImage('assets/logo/bg.png'),
+      fit: BoxFit.cover,
+      )),
+      child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Column(
@@ -200,7 +206,7 @@ class _loginState extends State<login> {
                             Radius.circular(10.0),
                           ),
                           borderSide: BorderSide(
-                            width: 0,
+                            width: 1,
                             style: BorderStyle.none,
                           ),
                         ),
@@ -228,7 +234,7 @@ class _loginState extends State<login> {
                           Radius.circular(10.0),
                         ),
                         borderSide: BorderSide(
-                          width: 0,
+                          width: 1,
                           style: BorderStyle.none,
                         ),
                       ),
@@ -258,6 +264,7 @@ class _loginState extends State<login> {
                     child: SizedBox(
                       width: 300,
                       child: FloatingActionButton.extended(
+                        backgroundColor: Color(0xFF21a0aa),
                         onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>stock_home()),),
                         label: Text('Login'),
                         icon: Icon(Icons.login),
@@ -294,6 +301,7 @@ class _loginState extends State<login> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: FloatingActionButton.extended(
+                        backgroundColor: Color(0xFF21a0aa),
                         onPressed: () {},
                         label: Text('Facebook'),
                         icon: Icon(Icons.facebook),
@@ -302,6 +310,7 @@ class _loginState extends State<login> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: FloatingActionButton.extended(
+                        backgroundColor: Color(0xFF21a0aa),
                         onPressed: () {},
                         label: Text('Google'),
                         icon: Icon(Icons.report_gmailerrorred),
@@ -329,7 +338,7 @@ class _loginState extends State<login> {
             )
           ],
         ),
-      )
+      ))
 
     );
   }
