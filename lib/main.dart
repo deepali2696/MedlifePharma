@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pharmamanagementsystem/landing.dart';
+import 'Admin/admin_stockmanager_add.dart';
 import 'Login.dart';
 import 'firebase_options.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: login(),
+      home: adminStockadd(),
 
     );
   }

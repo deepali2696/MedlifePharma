@@ -44,7 +44,6 @@ class _admin_homeState extends State<admin_home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFEEF1FF),
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
@@ -101,7 +100,6 @@ class _admin_homeState extends State<admin_home> {
                 height: 80,
                 decoration: const BoxDecoration(
                   color: Color(0xFF3BACB6),
-                  //1687A7
                   borderRadius:
                   BorderRadius.only(bottomRight: Radius.circular(100.0)),
                   //.all(Radius.circular(10)),
