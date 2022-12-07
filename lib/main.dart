@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:pharmamanagementsystem/Admin/admin_home.dart';
+import 'package:pharmamanagementsystem/Admin/admin_orderclerk_add.dart';
+import 'package:pharmamanagementsystem/Admin/admin_orderclerk_list.dart';
+import 'package:pharmamanagementsystem/Admin/admin_stockmanager_list.dart';
 import 'package:pharmamanagementsystem/landing.dart';
+import 'Admin/admin_order_list.dart';
+import 'Admin/admin_stock_list.dart';
 import 'Admin/admin_stockmanager_add.dart';
 import 'Login.dart';
+import 'Stock_Manager/Stock_Products_List.dart';
 import 'firebase_options.dart';
 
 
@@ -20,9 +27,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: adminStockadd(),
+      home: adminStockList(),
 
     );
   }

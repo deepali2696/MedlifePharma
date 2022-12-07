@@ -37,7 +37,7 @@ class _admin_homeState extends State<admin_home> {
       ],
       icon: Container(
         child: Image.asset(
-          'assets/Icons/profile.png',
+          'assets/logo/profile.png',
         ),
       ));
 
@@ -161,7 +161,7 @@ class _admin_homeState extends State<admin_home> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  'Icons/stock_manager1.png',
+                                  'assets/logo/stock_manager1.png',
                                   height: 65,
                                   width: 65,
                                 ),
@@ -203,7 +203,7 @@ class _admin_homeState extends State<admin_home> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  'Icons/order_clerk.png',
+                                  'logo/order_clerk.png',
                                   height: 65,
                                   width: 65,
                                 ),
@@ -249,7 +249,7 @@ class _admin_homeState extends State<admin_home> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  'Icons/order.png',
+                                  'logo/order.png',
                                   height: 65,
                                   width: 65,
                                 ),
@@ -291,7 +291,7 @@ class _admin_homeState extends State<admin_home> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  'Icons/stocks.png',
+                                  'logo/stocks.png',
                                   height: 65,
                                   width: 65,
                                 ),

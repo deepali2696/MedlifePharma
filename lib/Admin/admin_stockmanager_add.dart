@@ -4,15 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../Stock_Manager/Stock_Products.dart';
 import '../Stock_Manager/Stock_Products_List.dart';
+import 'admin_stockmanager_list.dart';
 
-class adminStockadd extends StatefulWidget {
-  const adminStockadd({Key? key}) : super(key: key);
+class adminStockMadd extends StatefulWidget {
+  const adminStockMadd({Key? key}) : super(key: key);
 
   @override
-  State<adminStockadd> createState() => _adminStockaddState();
+  State<adminStockMadd> createState() => _adminStockMaddState();
 }
 
-class _adminStockaddState extends State<adminStockadd> {
+class _adminStockMaddState extends State<adminStockMadd> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,7 +111,7 @@ class _adminStockaddState extends State<adminStockadd> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                stock_list())),
+                                                adminStockMList())),
                                     child: Text(
                                       "List User",
                                       style: GoogleFonts.ubuntu(

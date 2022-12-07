@@ -4,14 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'admin_stockmanager_add.dart';
 
-class adminStockList extends StatefulWidget {
-  const adminStockList({Key? key}) : super(key: key);
+class adminStockMList extends StatefulWidget {
+  const adminStockMList({Key? key}) : super(key: key);
 
   @override
-  State<adminStockList> createState() => _adminStockListState();
+  State<adminStockMList> createState() => _adminStockMListState();
 }
 
-class _adminStockListState extends State<adminStockList> {
+class _adminStockMListState extends State<adminStockMList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +28,14 @@ class _adminStockListState extends State<adminStockList> {
         ),
       ),
         body: SingleChildScrollView(
-          child: Column(
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/logo/bg.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Column(
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -62,7 +69,7 @@ class _adminStockListState extends State<adminStockList> {
                             Padding(
                                 padding: EdgeInsets.symmetric(vertical: 15),
                                 child: TextButton(
-                                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => adminStockadd())) ,
+                                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => adminStockMadd())) ,
                                   child: Text("Add User",
                                     style: GoogleFonts.ubuntu(
                                         fontSize: 17, color: Colors.white), ),
@@ -187,6 +194,7 @@ class _adminStockListState extends State<adminStockList> {
                 ],
               )
             ],
+          ),
           ),
         )
     );

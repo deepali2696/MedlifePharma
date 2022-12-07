@@ -28,7 +28,14 @@ class _adminOrderclerkListState extends State<adminOrderclerkList> {
           ),
         ),
         body: SingleChildScrollView(
-          child: Column(
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/logo/bg.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+             child: Column(
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -187,6 +194,7 @@ class _adminOrderclerkListState extends State<adminOrderclerkList> {
                 ],
               )
             ],
+          ),
           ),
         )
     );
