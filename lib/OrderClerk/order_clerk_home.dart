@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pharmamanagementsystem/OrderClerk/Client.dart';
+import 'package:pharmamanagementsystem/OrderClerk/Orders.dart';
 import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
 
 class order_clerk_home extends StatefulWidget {
@@ -83,7 +85,7 @@ class _order_clerk_home extends State<order_clerk_home>{
                       width: 80,
                       height: 65,
                       label: 'Clients',
-                      page: stock_product(),
+                      page: order_client(),
                     ),
                   ),
                   Expanded(
@@ -105,6 +107,7 @@ class _order_clerk_home extends State<order_clerk_home>{
                       width: 55,
                       height: 55,
                       label: 'Orders',
+                      page: order_order(),
                     ),
                   ),
                 ],
