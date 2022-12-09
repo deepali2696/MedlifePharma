@@ -110,8 +110,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
-
 import '../Stock_Manager/Stock_Products_List.dart';
+import 'listofclient.dart';
 
 class order_client extends StatefulWidget {
   const order_client({Key? key}) : super(key: key);
@@ -134,6 +134,12 @@ class _order_client extends State<order_client>{
   final client_addressController = TextEditingController();
 
   late DatabaseReference dbRef;
+
+  @override
+  void initState() {
+    super.initState();
+    dbRef = FirebaseDatabase.instance.ref().child('Clients');
+  }
 
   _cleartext(){
     client_idController.clear();
@@ -248,7 +254,7 @@ class _order_client extends State<order_client>{
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          stock_list())),
+                                          listofclient())),
                               child: Text(
                                 "List Clients",
                                 style: GoogleFonts.ubuntu(
@@ -326,7 +332,7 @@ class _order_client extends State<order_client>{
                         iconname: Icons.drive_file_rename_outline,
                       ),
                       text_input(
-                        controller: client_nameController,
+                        controller: client_licenseController,
                         label: 'License Number',
                         hinttext: 'Please enter license number',
                         iconname: Icons.numbers,

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_list_order.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/Stock_list_stock.dart';
 
 import 'Stock_products_list.dart';
 
@@ -13,6 +15,10 @@ class stock_home extends StatefulWidget {
 }
 
 class _stock_homeState extends State<stock_home> {
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,19 +100,21 @@ class _stock_homeState extends State<stock_home> {
                     width: 65,
                     height: 55,
                     label: 'Stocks',
+                    page: stockmanagerstock(),
                   ),
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const <Widget>[
+              children:  <Widget>[
                 Expanded(
                   child: option_card(
                     address: 'assets/logo/orders.png',
                     width: 55,
                     height: 55,
                     label: 'Orders',
+                    page: stockmanagerorder(),
                   ),
                 ),
               ],

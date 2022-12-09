@@ -90,10 +90,11 @@ class _order_clerk_home extends State<order_clerk_home>{
                   ),
                   Expanded(
                     child: option_card(
-                      address: 'assets/logo/clerk.png',
+                      address: 'assets/logo/orders.png',
                       width: 65,
                       height: 65,
-                      label: 'Clerk',
+                      label: 'Orders',
+                      page: order_order(),
                     ),
                   ),
                 ],
@@ -103,11 +104,10 @@ class _order_clerk_home extends State<order_clerk_home>{
                 children: const <Widget>[
                   Expanded(
                     child: option_card(
-                      address: 'assets/logo/orders.png',
+                      address: 'assets/logo/inventory.png',
                       width: 55,
                       height: 55,
-                      label: 'Orders',
-                      page: order_order(),
+                      label: 'Stocks',
                     ),
                   ),
                 ],
@@ -120,6 +120,7 @@ class _order_clerk_home extends State<order_clerk_home>{
 }
 
 class option_card extends StatelessWidget {
+
   const option_card(
       {super.key,
         required this.address,
@@ -137,7 +138,7 @@ class option_card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 163.0,
+      height: 173.0,
       margin: EdgeInsets.all(9.0),
       decoration: BoxDecoration(
           color: Color(0xFF9ED2C6),

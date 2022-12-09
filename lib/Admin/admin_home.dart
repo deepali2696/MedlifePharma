@@ -2,6 +2,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pharmamanagementsystem/Admin/admin_order_list.dart';
+import 'package:pharmamanagementsystem/Admin/admin_orderclerk_add.dart';
+import 'package:pharmamanagementsystem/Admin/admin_stock_list.dart';
+import 'package:pharmamanagementsystem/Admin/admin_stockmanager_add.dart';
 
 import '../Login.dart';
 //import 'package:google_fonts/google_fonts.dart';
@@ -64,7 +68,7 @@ class _admin_homeState extends State<admin_home> {
                           children: <Widget>[
                             Container(
                               //padding: EdgeInsets.only(top: 15.0),
-                              child: Image.asset('assets/logo/logo1.png'),
+                              child: Image.asset('assets/logo/Logo1.png'),
                               height: 65.0,
                               width: 60.0,
                             ),
@@ -118,17 +122,6 @@ class _admin_homeState extends State<admin_home> {
                       ),
                     ),
                     Container(height: 60.0, width: 60.0, child: _offsetPopup()
-                      // FloatingActionButton(
-                      //   child: Image.asset('assets/Icons/profile.png',
-                      //     height: 55.0,
-                      //     width: 55.0,),
-                      //   onPressed: () {
-                      //
-                      //
-                      //     print('Pressed');
-                      //   },
-                      // )
-                      // padding: EdgeInsets.only(top: 15.0),
                     ),
                   ],
                 ),
@@ -171,7 +164,7 @@ class _admin_homeState extends State<admin_home> {
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 10),
                                 child: TextButton(
-                                  onPressed: () {},
+                                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => adminStockMadd())),
                                   child: Text(
                                     'Stock Manager',
                                     style: GoogleFonts.ubuntu(
@@ -203,7 +196,7 @@ class _admin_homeState extends State<admin_home> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  'logo/order_clerk.png',
+                                  'assets/logo/order_clerk.png',
                                   height: 65,
                                   width: 65,
                                 ),
@@ -213,7 +206,7 @@ class _admin_homeState extends State<admin_home> {
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 10),
                                 child: TextButton(
-                                  onPressed: () {},
+                                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => adminOrderClerkAdd())),
                                   child: Text(
                                     'Order Clerk',
                                     style: GoogleFonts.ubuntu(
@@ -249,7 +242,7 @@ class _admin_homeState extends State<admin_home> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  'logo/order.png',
+                                  'assets/logo/order.png',
                                   height: 65,
                                   width: 65,
                                 ),
@@ -259,7 +252,7 @@ class _admin_homeState extends State<admin_home> {
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 10),
                                 child: TextButton(
-                                  onPressed: () {},
+                                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => adminOrderList())),
                                   child: Text(
                                     'Orders',
                                     style: GoogleFonts.ubuntu(
@@ -291,7 +284,7 @@ class _admin_homeState extends State<admin_home> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  'logo/stocks.png',
+                                  'assets/logo/stocks.png',
                                   height: 65,
                                   width: 65,
                                 ),
@@ -301,7 +294,7 @@ class _admin_homeState extends State<admin_home> {
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 10),
                                 child: TextButton(
-                                  onPressed: () {},
+                                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => adminStockList())),
                                   child: Text(
                                     'Stocks',
                                     style: GoogleFonts.ubuntu(

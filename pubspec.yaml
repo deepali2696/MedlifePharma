@@ -13,13 +13,20 @@ dependencies:
     sdk: flutter
   intl: ^0.17.0
 
+
+
   cupertino_icons: ^1.0.2
   cloud_firestore: ^4.1.0
   google_fonts: ^3.0.1
   firebase_database: ^10.0.6
-  cloud_firestore: ^4.1.0
   firebase_core: ^2.3.0
   flutter_gif: ^0.0.4
+  json_annotation: ^4.0.1
+  google_maps_flutter: ^2.2.1
+  location: ^4.3.0
+  permission_handler: ^8.1.4+2
+  provider: ^6.0.0
+  geocoding: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -33,3 +40,4 @@ flutter:
 
   assets:
     - assets/logo/
+    - assets/map_style.json

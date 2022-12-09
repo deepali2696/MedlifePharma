@@ -111,6 +111,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:pharmamanagementsystem/OrderClerk/listofclient.dart';
 import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
 
 import '../Stock_Manager/Stock_Products_List.dart';
@@ -265,7 +266,7 @@ class _order_order extends State<order_order>{
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    stock_list())),
+                                                    listofclient())),
                                         child: Text(
                                           "List Orders",
                                           style: GoogleFonts.ubuntu(

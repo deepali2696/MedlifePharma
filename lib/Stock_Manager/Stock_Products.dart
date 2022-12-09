@@ -220,6 +220,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:pharmamanagementsystem/Stock_Manager/list.dart';
+import 'Search.dart';
 import 'Stock_Products_List.dart';
 
 class stock_product extends StatefulWidget {
@@ -382,7 +384,7 @@ class _stock_productState extends State<stock_product> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          stock_list())),
+                                          fetch_data())),
                               child: Text(
                                 "List Products",
                                 style: GoogleFonts.ubuntu(
@@ -440,6 +442,7 @@ class _stock_productState extends State<stock_product> {
                             label: 'Product Id',
                             hinttext: 'Please enter product Id',
                             iconname: Icons.numbers,
+                            TextInputType: TextInputType.phone,
                           ),
                            text_input(
                              controller: pro_nameController,
@@ -450,7 +453,7 @@ class _stock_productState extends State<stock_product> {
                           SizedBox(
                             width: double.infinity,
                             child: Padding(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 25, vertical: 15),
                               child: DropdownButton(
                                   value: selectedValue,
@@ -461,8 +464,7 @@ class _stock_productState extends State<stock_product> {
                                     setState(() {
                                       selectedValue = newValue!;
                                     });
-                                  },
-                                  items: dropdownItems),
+                                  },     items: dropdownItems),
                             ),
                           ),
                           SizedBox(
@@ -516,12 +518,15 @@ class _stock_productState extends State<stock_product> {
                             label: 'Product Quantity',
                             hinttext: 'Please enter product quantity',
                             iconname: Icons.numbers,
+                             TextInputType: TextInputType.phone,
+
                           ),
                            text_input(
                             controller: pro_priceController,
                             label: 'Product Price',
                             hinttext: 'Please enter product price',
                             iconname: Icons.currency_rupee,
+                             TextInputType: TextInputType.phone,
                           ),
                         ],
                       ),
@@ -566,12 +571,13 @@ class _stock_productState extends State<stock_product> {
 
 class text_input extends StatelessWidget {
   const text_input(
-      {required this.label, required this.hinttext, required this.iconname,required this.controller});
+      {required this.label, required this.hinttext, required this.iconname,required this.controller, this.TextInputType = null});
 
   final label;
   final hinttext;
   final iconname;
   final controller;
+  final TextInputType;
 
   @override
   Widget build(BuildContext context) {
@@ -580,6 +586,7 @@ class text_input extends StatelessWidget {
       child: TextField(
         controller: controller,
         cursorColor: Colors.black,
+        keyboardType: TextInputType,
         decoration: InputDecoration(
           filled: false,
           fillColor: Color(0xFFF0FFF3),

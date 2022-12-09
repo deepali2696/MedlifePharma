@@ -259,6 +259,7 @@
 // }
 //
 
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -272,256 +273,273 @@ class stock_list extends StatefulWidget {
   State<stock_list> createState() => _stock_listState();
 }
 
-class Products {
-  late int productid, productquantity, productprice;
-  String productname,productdate;
-  Products(this.productid, this.productname, this.productquantity, this.productprice, this.productdate);
-}
-
 class _stock_listState extends State<stock_list> {
+  Query dbRef = FirebaseDatabase.instance.ref().child('Products');
+  DatabaseReference reference = FirebaseDatabase.instance.ref().child('Products');
 
-  List<Products> ProductsLst = <Products>[ ] ;
-
-  final formKey = new GlobalKey<FormState>();
-  var Id_controller = new TextEditingController();
-  var Name_controller = new TextEditingController();
-  var date_controller = new TextEditingController();
-  var quantity_controller = new TextEditingController();
-  var price_controller = new TextEditingController();
-  var lastId;
-
-  @override
-  // Method that call only once to initiate the default app.
-  void initState() {
-    super.initState();
-    Id_controller.text = lastId.toString();
+  Widget listItem({required Map product}) {
+    return Container(
+      decoration: BoxDecoration(
+          color: Color(0xFFFFFFFF),
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 20.0,
+              color: Color(0xFF90C8AC),
+            )
+          ]),
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
+      height: 156,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(product['id']),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
+            'age',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          Text(
+            'salary',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          Text(
+            'salary',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
+            'salary',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {},
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.edit,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              GestureDetector(
+                onTap: () {
+                  reference.child(product['key']).remove();
+                },
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.delete,
+                      color: Colors.red[700],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 
-  refreshList() {
-    setState(() {
-      Id_controller.text = lastId.toString();
-    });
-  }
-
-  validate() {
-    if (formKey.currentState!.validate()) {
-      formKey.currentState!.save();
-      String Id = Id_controller.text;
-      String Name = Name_controller.text;
-      String date = date_controller.text;
-      String quan = quantity_controller.text;
-      String price = price_controller.text;
-      Products  p = Products(int.parse(Id), Name, int.parse(date), int.parse(quan), price);
-      ProductsLst.add(p);
-      lastId++;
-      refreshList();
-      Name_controller.text = "";
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF2F8F9D),
-        shadowColor: Color(0xFF82DBD8),
-        leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: Icon(Icons.arrow_back_ios)),
-        centerTitle: true,
-        title: Text(
-          'STOCK MANAGER',
-          style: GoogleFonts.ubuntu(fontSize: 25.0),
+        appBar: AppBar(
+          backgroundColor: Color(0xFF2F8F9D),
+          shadowColor: Color(0xFF82DBD8),
+          leading: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(Icons.arrow_back_ios)),
+          centerTitle: true,
+          title: Text(
+            'STOCK MANAGER',
+            style: GoogleFonts.ubuntu(fontSize: 25.0),
+          ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Expanded(
-                    child: Container(
-                      height: 70.0,
-                      margin: EdgeInsets.all(12.0),
-                      decoration: BoxDecoration(
-                          color: Color(0xFF2F8F9D),
-                          borderRadius: BorderRadius.circular(10.0),
-                          boxShadow: const [
-                            BoxShadow(
-                              blurRadius: 20.0,
-                              color: Color(0xFF7A9EB1),
-                            )
-                          ]),
-                      child: Row(
-                        children: <Widget>[
-                          Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 2, vertical: 20),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(50),
-                                child: Image.asset(
-                                  "assets/logo/add.png",
-                                  width: 45,
-                                  height: 45,
-                                ),
-                              )),
-                          Padding(
-                              padding: EdgeInsets.symmetric(vertical: 15),
-                              child: TextButton(
-                                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => stock_product())) ,
-                                child: Text("Add Products",
-                                  style: GoogleFonts.ubuntu(
-                                      fontSize: 17, color: Colors.white), ),
-                              ))
-                        ],
-                      ),
-                    )),
-                Expanded(
-                    child: Container(
-                      height: 70.0,
-                      margin: EdgeInsets.all(15.0),
-                      decoration: BoxDecoration(
-                          color: Color(0xFF2F8F9D),
-                          borderRadius: BorderRadius.circular(10.0),
-                          boxShadow: const [
-                            BoxShadow(
-                              blurRadius: 20.0,
-                              color: Color(0xFF7A9EB1),
-                            )
-                          ]),
-                      child: Row(
-                        children: <Widget>[
-                          Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 2, vertical: 20),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(50),
-                                child: Image.asset(
-                                  "assets/logo/list.png",
-                                  width: 45,
-                                  height: 45,
-                                ),
-                              )),
-                          Padding(
-                              padding: EdgeInsets.symmetric(vertical: 15),
-                              child: Text(
-                                "List Products",
-                                style: GoogleFonts.ubuntu(
-                                    fontSize: 17, color: Colors.white),
-                              ))
-                        ],
-                      ),
-                    ))
-              ],
-            ),
-            Row(children: <Widget>[
-              Expanded(
+        body:
+            SingleChildScrollView(
                 child: Container(
-                    margin: const EdgeInsets.only(left: 15.0, right: 15.0),
-                    child: const Divider(
-                      color: Colors.black,
-                      height: 50,
-                    )),
-              ),
-            ]),
-            Column(
-              children: <Widget>[
-                Container(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        'LIST PRODUCTS',
-                        style: GoogleFonts.ubuntu(fontSize: 18),
-                      ),
-                    ))
-              ],
-            ),
-            Column(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
-                  height: 500.0,
                   decoration: BoxDecoration(
-                      color: Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 20.0,
-                          color: Color(0xFF90C8AC),
-                        )
-                      ]),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Column(
+                      image: DecorationImage(
+                          image: AssetImage('assets/logo/bg.png'), fit: BoxFit.cover)),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          DataTable(
-                              dividerThickness: 5,
-                              decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                  BorderRadius.all(Radius.circular(5.0))),
-                              columnSpacing: 30.0,
-                              columns: const [
-                                DataColumn(
-                                  label: Text('Product Id'),
+                          Expanded(
+                              child: Container(
+                                height: 70.0,
+                                margin: EdgeInsets.all(12.0),
+                                decoration: BoxDecoration(
+                                    color: Color(0xFF2F8F9D),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        blurRadius: 20.0,
+                                        color: Color(0xFF7A9EB1),
+                                      )
+                                    ]),
+                                child: Row(
+                                  children: <Widget>[
+                                    Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2, vertical: 20),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(50),
+                                          child: Image.asset(
+                                            "assets/logo/add.png",
+                                            width: 45,
+                                            height: 45,
+                                          ),
+                                        )),
+                                    Padding(
+                                        padding: EdgeInsets.symmetric(vertical: 15),
+                                        child: TextButton(
+                                          onPressed: () => Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => stock_product())),
+                                          child: Text(
+                                            "Add Products",
+                                            style: GoogleFonts.ubuntu(
+                                                fontSize: 17, color: Colors.white),
+                                          ),
+                                        ))
+                                  ],
                                 ),
-                                DataColumn(
-                                  label: Text('Product Name'),
+                              )),
+                          Expanded(
+                              child: Container(
+                                height: 70.0,
+                                margin: EdgeInsets.all(15.0),
+                                decoration: BoxDecoration(
+                                    color: Color(0xFF2F8F9D),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        blurRadius: 20.0,
+                                        color: Color(0xFF7A9EB1),
+                                      )
+                                    ]),
+                                child: Row(
+                                  children: <Widget>[
+                                    Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 2, vertical: 20),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(50),
+                                          child: Image.asset(
+                                            "assets/logo/list.png",
+                                            width: 45,
+                                            height: 45,
+                                          ),
+                                        )),
+                                    Padding(
+                                        padding: EdgeInsets.symmetric(vertical: 15),
+                                        child: Text(
+                                          "List Products",
+                                          style: GoogleFonts.ubuntu(
+                                              fontSize: 17, color: Colors.white),
+                                        ))
+                                  ],
                                 ),
-                                DataColumn(
-                                  label: Text('Product Date'),
-                                ),
-                                DataColumn(
-                                  label: Text('Product Quantity'),
-                                ),
-                                DataColumn(
-                                  label: Text('Product Price'),
-                                ),
-                              ],
-                              rows: ProductsLst.map((p) => DataRow(cells: [ DataCell(Text(p.productid.toString()))])).toList()
-                              )
+                              ))
                         ],
                       ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-                  child: FloatingActionButton.extended(
-                    backgroundColor: Color(0xFF3A8891),
-                    onPressed: () {},
-                    label: Text(
-                      'Update Product',
-                      style: GoogleFonts.ubuntu(),),
+                      Row(children: <Widget>[
+                        Expanded(
+                          child: Container(
+                              margin: const EdgeInsets.only(left: 15.0, right: 15.0),
+                              child: const Divider(
+                                color: Colors.black,
+                                height: 50,
+                              )),
+                        ),
+                      ]),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                              alignment: Alignment.centerLeft,
+                              child: Padding(
+                                padding:
+                                EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                                child: Text(
+                                  'LIST PRODUCTS',
+                                  style: GoogleFonts.ubuntu(fontSize: 18),
+                                ),
+                              ))
+                        ],
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 8,
+                        ),
+                        height: 540.0,
+                        decoration: BoxDecoration(
+                            color: Color(0xFFFFFFFF),
+                            borderRadius: BorderRadius.circular(10.0),
+                            boxShadow: const [
+                              BoxShadow(
+                                blurRadius: 20.0,
+                                color: Color(0xFF90C8AC),
+                              )
+                            ]),
 
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-                  child: FloatingActionButton.extended(
-                    backgroundColor: Color(0xFF3A8891),
-                    onPressed: () {},
-                    label: Text(
-                      'Delete Product',
-                      style: GoogleFonts.ubuntu(),),
 
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-      )
+                        // FirebaseAnimatedList(
+                        //     query: dbRef,
+                        //     itemBuilder: (BuildContext context, DataSnapshot snapshot,
+                        //         Animation<double> animation, int index) {
+                        //       if (!snapshot.exists) {
+                        //         return Text('No data');
+                        //       } else {
+                        //         return SizeTransition(
+                        //           sizeFactor: animation,
+                        //           axis: Axis.horizontal,
+                        //           axisAlignment: -0.8,
+                        //           child: Column(
+                        //             textDirection: TextDirection.ltr,
+                        //             verticalDirection: VerticalDirection.down,
+                        //             children: <Widget>[
+                        //               SizedBox(
+                        //                 height: 100.0,
+                        //               ),
+                        //
+                        //
+                        //               Text(
+                        //                 "User ID : " + snapshot.value ! ['productid'],
+                        //               ),
+                        //               SizedBox(
+                        //                 height: 50.0,
+                        //               ),
+                        //             ],
+                        //           ),
+                        //         );
+                        //       }
+                        //     }),
 
-    );
+                      ),
+                    ],
+                  ),
+                )),
+            );
+
   }
 }

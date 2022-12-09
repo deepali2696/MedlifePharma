@@ -1,10 +1,14 @@
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pharmamanagementsystem/Stock_Manager/Stock_Products.dart';
 import 'package:pharmamanagementsystem/Stock_Manager/Stock_list_stock.dart';
 import 'package:pharmamanagementsystem/reusable/logoutcard.dart';
 
 
+import '../OrderClerk/Orders.dart';
 import '../reusable/imagecard.dart';
 import '../reusable/menucard.dart';
 import '../reusable/screentitle.dart';
@@ -16,372 +20,200 @@ class stockmanagerorder extends StatefulWidget {
 }
 
 class _stockmanagerorderState extends State<stockmanagerorder> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Color(0xFF7ab4bd),
-        body: SingleChildScrollView(
-          child:
-          Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  const screentitle(
-                    title: 'STOCK MANAGER',
-                  ),
-                  const logoutbtn(),
-                ],
-              ),
-              Column(
-                children: const <Widget>[
-                  imagecard(),
-                ],
-              ),
-              Container(
-                color: const Color(0xFFc3eaf0),
+
+  Query dbRef = FirebaseDatabase.instance.ref().child('Orders');
+  DatabaseReference reference =
+  FirebaseDatabase.instance.ref().child('Orders');
+
+  Widget listItem({required Map student}) {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
+      height: 200,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15.0),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.grey,
+            offset: Offset(5.0, 5.0,),
+            blurRadius: 10.0,
+            spreadRadius: 2.0,
+          ), //BoxShadow
+          BoxShadow(
+            color: Colors.white,
+            offset: Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxShadow
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            student['orderid'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
+            student['orderdate'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),Text(
+            student['clientname'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),Text(
+            student['productname'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),Text(
+            student['orderquantity'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          GestureDetector(
+            child: Text(
+              student['Totalprice'],
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+            ),
+            onTap:() {},
+          ),
+
+          const SizedBox(
+            height: 5,
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+
+                },
                 child: Row(
-                  children: <Widget>[
-                    ButtonBar(
-                      alignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        menuoption(
-                            menutext: 'Prodcuts', padlef: 70.0,des: stock_product(),),
-                        menuoption(
-                          menutext: 'Stocks',des: stockmanagerstock(),
-                        ),
-                        menuoption(
-                          menutext: 'Orders',  autofocus: true,des: stockmanagerorder(),
-                        )
-                      ],
-                    )
+                  children: [
+                    Icon(
+                      Icons.edit,
+                      color: Theme.of(context).primaryColor,
+                    ),
                   ],
                 ),
               ),
-              Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.fromLTRB(30.0, 15.0, 0.0, 0.0),
-                    alignment: Alignment.centerLeft,
-                    child: const Text(
-                      'Listed information of orders placed',
-                      style: TextStyle(
-                          fontSize: 17.0,
-                          color: Colors.black87,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  )
-                ],
+              const SizedBox(
+                width: 6,
               ),
-              Container(
-                width: 700,
-                height: 450,
-                child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Column(
-                        children: <Widget>[
-                          DataTable(
-                              dividerThickness: 5,
-                              decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                  BorderRadius.all(Radius.circular(5.0))),
-                              columnSpacing: 30.0,
-                              columns: const [
-                                DataColumn(
-                                  label: Text('Order Id'),
-                                ),
-                                DataColumn(
-                                  label: Text('Product Name'),
-                                ),
-                                DataColumn(
-                                  label: Text('Client Name'),
-                                ),
-                                DataColumn(
-                                  label: Text('Quantity of order'),
-                                ),
-                                DataColumn(
-                                  label: Text('Total Price'),
-                                ),
-                                DataColumn(
-                                  label: Text('Order Date'),
-                                ),
-                              ],
-                              rows: const [
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),
-                                DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),DataRow(cells: [
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('Cetaphill')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                  DataCell(Text('0125')),
-                                ]),
-                              ])
-                        ],
-                      ),
+              GestureDetector(
+                onTap: () {
+                  reference.child(student['key']).remove();
+                },
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.delete,
+                      color: Colors.red[700],
                     ),
-
-                  ),
+                  ],
                 ),
-                // Row(
-                //   children:const [
-                //     scrollabledatatable(),
-                //   ],
-                // ),
               ),
-              // Padding(
-              //   padding: EdgeInsets.all(8),
-              //   child: SingleChildScrollView(
-              //     scrollDirection: Axis.vertical,
-              //     child: SingleChildScrollView(
-              //       scrollDirection: Axis.horizontal,
-              //       child: Column(
-              //         children: <Widget>[
-              //           DataTable(
-              //             sortAscending: true,
-              //               sortColumnIndex: 3,
-              //               decoration: const BoxDecoration(
-              //                   color: Colors.white,
-              //                   borderRadius:
-              //                       BorderRadius.all(Radius.circular(5.0))),
-              //               columnSpacing: 30.0,
-              //               columns: const [
-              //                 DataColumn(
-              //                   label: Text('Id'),
-              //                 ),
-              //                 DataColumn(
-              //                   label: Text('Type'),
-              //                 ),
-              //                 DataColumn(
-              //                   label: Text('Name'),
-              //                 ),
-              //                 DataColumn(
-              //                   label: Text('Quantity'),
-              //                 ),
-              //                 DataColumn(
-              //                   label: Text('Price'),
-              //                 ),
-              //               ],
-              //               rows: const [
-              //                 DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),
-              //                 DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),
-              //                 DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),
-              //                 DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),
-              //                 DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),
-              //                 DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),
-              //                 DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),
-              //                 DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),DataRow(cells: [
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('Cetaphill')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                   DataCell(Text('0125')),
-              //                 ]),
-              //               ])
-              //         ],
-              //       ),
-              //     ),
-              //
-              //   ),
-              // ),
-              // Row(
-              //   children:const [
-              //     scrollabledatatable(),
-              //   ],
-              // ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(top: 20.0),
-                    child: SizedBox(
-                      width: 130.0,
-                      height: 35.0,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                            backgroundColor: const Color(0xFFe6ea80)),
-                        child: const Text(
-                          'Update/Delete',
-                          style: TextStyle(color: Colors.black87, fontSize: 15.0),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              )
             ],
-            // child: Column(
-            //
-            // ),
+          )
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xFF2F8F9D),
+          shadowColor: Color(0xFF82DBD8),
+          leading: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(Icons.arrow_back_ios)),
+          centerTitle: true,
+          title: Text(
+            'Order Clerk',
+            style: GoogleFonts.ubuntu(fontSize: 25.0),
+          ),
+        ),
+        body:
+        SingleChildScrollView(
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/logo/bg.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Column(
+              children: <Widget>[
+
+                Row(children: <Widget>[
+                  Expanded(
+                    child: Container(
+                        margin: const EdgeInsets.only(left: 15.0, right: 15.0),
+                        child: const Divider(
+                          color: Colors.black,
+                          height: 50,
+                        )),
+                  ),
+                ]),
+                Column(
+                  children: <Widget>[
+                    Container(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 30),
+                          child: Text(
+                            'LIST ORDERS',
+                            style: GoogleFonts.ubuntu(fontSize: 18),
+                          ),
+                        ))
+                  ],
+                ),
+                Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8,),
+                    height: 540.0,
+                    decoration: BoxDecoration(
+                        color:    Color(0xFFFFFFFF),
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 20.0,
+                            color: Color(0xFF90C8AC),
+                          )
+                        ]),
+                    child:
+                    FirebaseAnimatedList(
+                      query: dbRef,
+                      itemBuilder: (BuildContext context, DataSnapshot
+                      snapshot, Animation<double> animation, int index) {
+
+                        Map student = snapshot.value as Map;
+                        student['key'] = snapshot.key;
+
+                        return listItem(student: student);
+
+                      },
+
+                    )
+                ),
+              ],
+            ),
           ),
         )
 

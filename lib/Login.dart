@@ -147,8 +147,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pharmamanagementsystem/OrderClerk/order_clerk_home.dart';
 import 'package:pharmamanagementsystem/Stock_Manager/stock_home.dart';
 
+import 'Admin/admin_home.dart';
 import 'Stock_Manager/Stock_Products.dart';
 
 class login extends StatefulWidget {
@@ -160,6 +162,10 @@ class login extends StatefulWidget {
 
 class _loginState extends State<login> {
   bool passenable = true;
+
+  final emailcontroller  = TextEditingController();
+  final passwordcontroller  = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,7 +197,8 @@ class _loginState extends State<login> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: Container(
-                    child: const TextField(
+                    child: TextField(
+                      controller: emailcontroller,
                       cursorColor: Colors.black,
                       decoration: InputDecoration(
                         filled: true,
@@ -214,9 +221,10 @@ class _loginState extends State<login> {
                     ),
                   ),
                 ),
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
                   child: TextField(
+                    controller: passwordcontroller,
                     cursorColor: Colors.black,
                     obscureText: true,
                     decoration: InputDecoration(
@@ -265,7 +273,25 @@ class _loginState extends State<login> {
                       width: 300,
                       child: FloatingActionButton.extended(
                         backgroundColor: Color(0xFF21a0aa),
-                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>stock_home()),),
+                        onPressed: ()  {
+                          if(emailcontroller.text == "Admin" &&
+                              passwordcontroller.text == "Admin")
+                          {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => admin_home()));
+                          }
+                          else if(emailcontroller.text ==
+                              "Vaviya.365@gmail.com" && passwordcontroller.text == "Hv@2102118")
+                          {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => stock_home()));
+                          }
+                          else if(emailcontroller.text == "Aryanmodi38@gmail.com" && passwordcontroller.text == "Hv@2102118")
+                            {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => order_clerk_home()));
+                            }
+                        },
                         label: Text('Login'),
                         icon: Icon(Icons.login),
                       ),

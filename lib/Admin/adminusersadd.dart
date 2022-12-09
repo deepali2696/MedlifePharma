@@ -1,14 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmamanagementsystem/Admin/adminorderlist.dart';
-import 'package:pharmamanagementsystem/Admin/adminstocklist.dart';
 import 'package:pharmamanagementsystem/reusable/imagecard.dart';
 import 'package:pharmamanagementsystem/reusable/logoutcard.dart';
 import 'package:pharmamanagementsystem/reusable/menucard.dart';
 import 'package:pharmamanagementsystem/reusable/userinputcard.dart';
 
 import '../reusable/screentitle.dart';
-import 'adminuserlist.dart';
 
 class adminusersadd extends StatefulWidget {
   @override
@@ -48,8 +45,8 @@ class _adminusersadd extends State<adminusersadd> {
                     autofocus: true,
                     des: adminusersadd(),
                   ),
-                  menuoption(menutext: 'Stocks', des: adminstocklist(),),
-                  menuoption(menutext: 'Orders', des: adminorderlist(),),
+                  // menuoption(menutext: 'Stocks', des: adminstocklist(),),
+                  // menuoption(menutext: 'Orders', des: adminorderlist(),),
                 ],
               )
             ],
@@ -116,7 +113,7 @@ class _adminusersadd extends State<adminusersadd> {
                   height: 40.0,
                   width: 110.0,
                   child: ElevatedButton(
-                    onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  adminuserlist()),),
+                    onPressed: () {},
                     style: TextButton.styleFrom(
                       backgroundColor: Color(0xFFe6ea80),
                     ),

@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +15,33 @@ class adminStockMadd extends StatefulWidget {
 }
 
 class _adminStockMaddState extends State<adminStockMadd> {
+
+  final user_idController = TextEditingController();
+  final first_nameController = TextEditingController();
+  final last_nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final phonenumberController = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  final user_type = "stockmanager";
+
+  late DatabaseReference dbRef;
+
+  @override
+  void initState() {
+    super.initState();
+    dbRef = FirebaseDatabase.instance.ref().child('Stockmanager');
+  }
+
+  _cleartext() {
+    user_idController.clear();
+    first_nameController.clear();
+    last_nameController.clear();
+    emailController.clear();
+    phonenumberController.clear();
+    passwordcontroller.clear();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -163,42 +191,43 @@ class _adminStockMaddState extends State<adminStockMadd> {
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Column(
-                          children: const <Widget>[
+                          children:  <Widget>[
                             text_input(
                               label: 'User Id',
                               hinttext: 'Please enter User Id',
-                              iconname: Icons.numbers, controller: null,
+                              iconname: Icons.numbers, controller: user_idController,
                             ),
                             text_input(
                               label: 'First Name',
                               hinttext: 'Please enter First Name',
                               iconname: Icons.drive_file_rename_outline,
-                              controller: null,
+                              controller: first_nameController,
                             ),
                             text_input(
                               label: 'Last Name',
                               hinttext: 'Please enter Last Name',
                               iconname: Icons.drive_file_rename_outline,
-                              controller: null,
+                              controller: last_nameController,
                             ),
                             text_input(
                               label: 'Email',
                               hinttext: 'Please enter Email',
                               iconname: Icons.email,
-                              controller: null,
+                              controller: emailController,
                             ),
                             text_input(
                               label: 'Phone Number',
                               hinttext: 'Please enter Phone Number',
                               iconname: Icons.numbers,
-                              controller: null,
+                              controller: phonenumberController,
                             ),
                             text_input(
                               label: 'Password',
                               hinttext: 'Please enter Password',
                               iconname: Icons.password,
-                              controller: null,
+                              controller: passwordcontroller,
                             ),
+
                           ],
                         ),
                       ),
@@ -212,7 +241,20 @@ class _adminStockMaddState extends State<adminStockMadd> {
                       child: FloatingActionButton.extended(
                         backgroundColor: Color(0xFF3A8891),
                         onPressed: () {
+                          Map<String, String> stockmanager = {
+                            'userid' : user_idController.text,
+                            'firstname' : first_nameController.text,
+                            'lastname' : last_nameController.text,
+                            'email' : emailController.text,
+                            'phonenumber' : phonenumberController.text,
+                            'password' : passwordcontroller.text,
+                            'usertype' : user_type,
+                          };
 
+
+                          dbRef.push().set(stockmanager);
+
+                          _cleartext();
                           }, label: Text(
                           'Save User',
                           style: GoogleFonts.ubuntu(),

@@ -1,7 +1,11 @@
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../Stock_Manager/Googlemap.dart';
+import '../Stock_Manager/Update.dart';
 import 'admin_stockmanager_add.dart';
 
 class adminStockMList extends StatefulWidget {
@@ -12,6 +16,121 @@ class adminStockMList extends StatefulWidget {
 }
 
 class _adminStockMListState extends State<adminStockMList> {
+
+  Query dbRef = FirebaseDatabase.instance.ref().child('Stockmanager');
+  DatabaseReference reference = FirebaseDatabase.instance.ref().child('Stockmanager');
+  Widget listItem({required Map student}) {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
+      height: 200,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15.0),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.grey,
+            offset: Offset(5.0, 5.0,),
+            blurRadius: 10.0,
+            spreadRadius: 2.0,
+          ), //BoxShadow
+          BoxShadow(
+            color: Colors.white,
+            offset: Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxShadow
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            student['userid'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          GestureDetector(
+            child: Text(
+              student['firstname'],
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+            ),
+            onTap: ()
+            {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => SimpleMap()));
+            },
+          ),
+
+          const SizedBox(
+            height: 5,
+          ),Text(
+            student['lastname'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),Text(
+            student['email'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),Text(
+            student['phonenumber'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),Text(
+            student['password'],
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => UpdateRecord(productKey: student['key'])));
+                },
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.edit,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 6,
+              ),
+              GestureDetector(
+                onTap: () {
+                  reference.child(student['key']).remove();
+                },
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.delete,
+                      color: Colors.red[700],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -138,61 +257,33 @@ class _adminStockMListState extends State<adminStockMList> {
                       ))
                 ],
               ),
-              Column(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
-                    height: 500.0,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFFFFFFF),
-                        borderRadius: BorderRadius.circular(10.0),
-                        boxShadow: const [
-                          BoxShadow(
-                            blurRadius: 20.0,
-                            color: Color(0xFF90C8AC),
-                          )
-                        ]),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.vertical,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Column(
-                          children: <Widget>[
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: 8,),
+                  height: 540.0,
+                  decoration: BoxDecoration(
+                      color:    Color(0xFFFFFFFF),
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 20.0,
+                          color: Color(0xFF90C8AC),
+                        )
+                      ]),
+                  child:
+                  FirebaseAnimatedList(
+                    query: dbRef,
+                    itemBuilder: (BuildContext context, DataSnapshot snapshot, Animation<double> animation, int index) {
 
-                          ],
-                        ),
-                      ),
-                    ),
+                      Map student = snapshot.value as Map;
+                      student['key'] = snapshot.key;
+
+                      return listItem(student: student);
+
+                    },
+
                   )
-                ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-                    child: FloatingActionButton.extended(
-                      backgroundColor: Color(0xFF3A8891),
-                      onPressed: () {},
-                      label: Text(
-                        'Update User',
-                        style: GoogleFonts.ubuntu(),),
 
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-                    child: FloatingActionButton.extended(
-                      backgroundColor: Color(0xFF3A8891),
-                      onPressed: () {},
-                      label: Text(
-                        'Delete User',
-                        style: GoogleFonts.ubuntu(),),
-
-                    ),
-                  )
-                ],
-              )
             ],
           ),
           ),
